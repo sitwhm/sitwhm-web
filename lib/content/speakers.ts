@@ -1,0 +1,68 @@
+import { Person } from "@/lib/types"
+
+export const speakers: Person[] = [
+  {
+    id: "speaker-1",
+    name: "Dr. Sarah Martinez",
+    title: "SAP BTP Architect & Cloud Innovation Lead",
+    bio: "Pioneering cloud-native solutions for enterprise transformation with 15+ years in SAP technologies.",
+    photo: "/people/speaker-1.jpg",
+    linkedin: "https://linkedin.com/in/sarahmartinez",
+  },
+  {
+    id: "speaker-2",
+    name: "Michael Chen",
+    title: "Senior SAP Developer & Community Expert",
+    bio: "Passionate about clean code and mentoring the next generation of SAP developers.",
+    photo: "/people/speaker-2.jpg",
+    linkedin: "https://linkedin.com/in/michaelchen",
+  },
+  {
+    id: "speaker-3",
+    name: "Lisa Hoffmann",
+    title: "SAP Fiori Specialist & UX Designer",
+    bio: "Creating intuitive user experiences that bridge business needs with modern design principles.",
+    photo: "/people/speaker-3.jpg",
+    linkedin: "https://linkedin.com/in/lisahoffmann",
+  },
+  {
+    id: "speaker-4",
+    name: "James Wilson",
+    title: "SAP Integration Architect",
+    bio: "Expert in connecting SAP ecosystems with modern APIs and microservices architectures.",
+    photo: "/people/speaker-4.jpg",
+    linkedin: "https://linkedin.com/in/jameswilson",
+  },
+  {
+    id: "speaker-5",
+    name: "Anna Kowalski",
+    title: "SAP ABAP & RAP Developer",
+    bio: "Modernizing legacy systems with RESTful ABAP Programming Model and best practices.",
+    photo: "/people/speaker-5.jpg",
+    linkedin: "https://linkedin.com/in/annakowalski",
+  },
+  {
+    id: "speaker-6",
+    name: "David Kumar",
+    title: "SAP Security & Compliance Consultant",
+    bio: "Ensuring enterprise security in SAP landscapes while maintaining operational efficiency.",
+    photo: "/people/speaker-6.jpg",
+    linkedin: "https://linkedin.com/in/davidkumar",
+  },
+  {
+    id: "speaker-7",
+    name: "Emma Rodriguez",
+    title: "SAP AI & Machine Learning Specialist",
+    bio: "Integrating AI capabilities into SAP workflows to unlock intelligent automation.",
+    photo: "/people/speaker-7.jpg",
+    linkedin: "https://linkedin.com/in/emmarodriguez",
+  },
+  {
+    id: "speaker-8",
+    name: "Thomas Bauer",
+    title: "SAP Basis Administrator & DevOps Engineer",
+    bio: "Building robust infrastructure and CI/CD pipelines for SAP application delivery.",
+    photo: "/people/speaker-8.jpg",
+    linkedin: "https://linkedin.com/in/thomasbauer",
+  },
+]

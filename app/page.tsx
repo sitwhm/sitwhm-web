@@ -4,6 +4,8 @@ import { Agenda } from "@/components/sections/Agenda"
 import { Registration } from "@/components/sections/Registration"
 import { Location } from "@/components/sections/Location"
 import { Sponsors } from "@/components/sections/Sponsors"
+import { Speakers } from "@/components/sections/Speakers"
+import { Organizers } from "@/components/sections/Organizers"
 
 export default function Home() {
   return (
@@ -14,6 +16,8 @@ export default function Home() {
       <Registration />
       <Location />
       <Sponsors />
+      <Speakers />
+      <Organizers />
     </main>
   )
 }

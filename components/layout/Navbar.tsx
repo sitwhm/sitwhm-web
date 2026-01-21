@@ -11,6 +11,8 @@ const navLinks = [
   { href: "#registration", label: "Registration" },
   { href: "#location", label: "Location" },
   { href: "#sponsors", label: "Sponsors" },
+  { href: "#speakers", label: "Speakers" },
+  { href: "#organizers", label: "Organizers" },
 ]
 
 export function Navbar() {

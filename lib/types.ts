@@ -22,3 +22,12 @@ export interface AboutCard {
   title: string
   description: string
 }
+
+export interface Person {
+  id: string
+  name: string
+  title: string
+  bio?: string
+  photo: string
+  linkedin?: string
+}
