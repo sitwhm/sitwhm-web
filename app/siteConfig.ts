@@ -2,9 +2,9 @@ export const siteConfig = {
   name: "SAP Inside Track Weinheim 2026",
   shortName: "SITWHM 2026",
   url: "https://sitwhm.com",
-  description: "Free community tech conference for SAP developers, architects, and consultants. September 26th, 2026 at Syntax IdeaFactory, Weinheim.",
+  description: "Free community tech conference for SAP developers, architects, and consultants. September 19th, 2026 at Syntax IdeaFactory, Weinheim.",
   event: {
-    date: "September 26th, 2026",
+    date: "September 19th, 2026",
     time: "9:00 AM - 6:00 PM",
     venue: "Syntax IdeaFactory",
     city: "Weinheim",
