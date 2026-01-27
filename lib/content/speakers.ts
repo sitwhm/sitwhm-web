@@ -6,7 +6,7 @@ export const speakers: Person[] = [
     name: "Dr. Sarah Martinez",
     title: "SAP BTP Architect & Cloud Innovation Lead",
     bio: "Pioneering cloud-native solutions for enterprise transformation with 15+ years in SAP technologies.",
-    photo: "/people/speaker-1.jpg",
+    photo: "https://i.pravatar.cc/300?u=sarah.martinez",
     linkedin: "https://linkedin.com/in/sarahmartinez",
   },
   {
@@ -14,7 +14,7 @@ export const speakers: Person[] = [
     name: "Michael Chen",
     title: "Senior SAP Developer & Community Expert",
     bio: "Passionate about clean code and mentoring the next generation of SAP developers.",
-    photo: "/people/speaker-2.jpg",
+    photo: "https://i.pravatar.cc/300?u=michael.chen",
     linkedin: "https://linkedin.com/in/michaelchen",
   },
   {
@@ -22,7 +22,7 @@ export const speakers: Person[] = [
     name: "Lisa Hoffmann",
     title: "SAP Fiori Specialist & UX Designer",
     bio: "Creating intuitive user experiences that bridge business needs with modern design principles.",
-    photo: "/people/speaker-3.jpg",
+    photo: "https://i.pravatar.cc/300?u=lisa.hoffmann",
     linkedin: "https://linkedin.com/in/lisahoffmann",
   },
   {
@@ -30,7 +30,7 @@ export const speakers: Person[] = [
     name: "James Wilson",
     title: "SAP Integration Architect",
     bio: "Expert in connecting SAP ecosystems with modern APIs and microservices architectures.",
-    photo: "/people/speaker-4.jpg",
+    photo: "https://i.pravatar.cc/300?u=james.wilson",
     linkedin: "https://linkedin.com/in/jameswilson",
   },
   {
@@ -38,7 +38,7 @@ export const speakers: Person[] = [
     name: "Anna Kowalski",
     title: "SAP ABAP & RAP Developer",
     bio: "Modernizing legacy systems with RESTful ABAP Programming Model and best practices.",
-    photo: "/people/speaker-5.jpg",
+    photo: "https://i.pravatar.cc/300?u=anna.kowalski",
     linkedin: "https://linkedin.com/in/annakowalski",
   },
   {
@@ -46,7 +46,7 @@ export const speakers: Person[] = [
     name: "David Kumar",
     title: "SAP Security & Compliance Consultant",
     bio: "Ensuring enterprise security in SAP landscapes while maintaining operational efficiency.",
-    photo: "/people/speaker-6.jpg",
+    photo: "https://i.pravatar.cc/300?u=david.kumar",
     linkedin: "https://linkedin.com/in/davidkumar",
   },
   {
@@ -54,7 +54,7 @@ export const speakers: Person[] = [
     name: "Emma Rodriguez",
     title: "SAP AI & Machine Learning Specialist",
     bio: "Integrating AI capabilities into SAP workflows to unlock intelligent automation.",
-    photo: "/people/speaker-7.jpg",
+    photo: "https://i.pravatar.cc/300?u=emma.rodriguez",
     linkedin: "https://linkedin.com/in/emmarodriguez",
   },
   {
@@ -62,7 +62,7 @@ export const speakers: Person[] = [
     name: "Thomas Bauer",
     title: "SAP Basis Administrator & DevOps Engineer",
     bio: "Building robust infrastructure and CI/CD pipelines for SAP application delivery.",
-    photo: "/people/speaker-8.jpg",
+    photo: "https://i.pravatar.cc/300?u=thomas.bauer",
     linkedin: "https://linkedin.com/in/thomasbauer",
   },
 ]

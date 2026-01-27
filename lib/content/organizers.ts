@@ -6,7 +6,7 @@ export const organizers: Person[] = [
     name: "Max Streifeneder",
     title: "Event Lead & SAP Community Advocate",
     bio: "Passionate about bringing the SAP community together for knowledge sharing and innovation.",
-    photo: "/people/max-streifeneder.jpg",
+    photo: "https://i.pravatar.cc/300?u=max.streifeneder",
     linkedin: "https://linkedin.com/in/maxstreifeneder",
   },
   {
@@ -14,7 +14,7 @@ export const organizers: Person[] = [
     name: "Julia Schmidt",
     title: "Content & Program Coordinator",
     bio: "Curating exceptional speaker sessions and ensuring a world-class conference experience.",
-    photo: "/people/julia-schmidt.jpg",
+    photo: "https://i.pravatar.cc/300?u=julia.schmidt",
     linkedin: "https://linkedin.com/in/juliaschmidt",
   },
   {
@@ -22,7 +22,7 @@ export const organizers: Person[] = [
     name: "Andreas Weber",
     title: "Logistics & Venue Manager",
     bio: "Making sure everything runs smoothly from registration to closing ceremony.",
-    photo: "/people/andreas-weber.jpg",
+    photo: "https://i.pravatar.cc/300?u=andreas.weber",
     linkedin: "https://linkedin.com/in/andreasweber",
   },
   {
@@ -30,7 +30,7 @@ export const organizers: Person[] = [
     name: "Sophia Müller",
     title: "Marketing & Communications Lead",
     bio: "Spreading the word and building excitement for SAP Inside Track Weinheim.",
-    photo: "/people/sophia-mueller.jpg",
+    photo: "https://i.pravatar.cc/300?u=sophia.mueller",
     linkedin: "https://linkedin.com/in/sophiamueller",
   },
 ]
