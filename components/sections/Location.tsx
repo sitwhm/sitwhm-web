@@ -7,7 +7,7 @@ export function Location() {
     {
       icon: RiMapPinLine,
       title: "Address",
-      description: "Syntax IdeaFactory, Weinheim, Germany",
+      description: "Syntax Auditorium, Weinheim, Germany",
     },
     {
       icon: RiSubwayLine,
@@ -34,7 +34,7 @@ export function Location() {
             </FadeDiv>
             <FadeDiv delay={0.1}>
               <p className="mt-4 text-lg text-gray-600">
-                Find us at the innovative Syntax IdeaFactory in Weinheim
+                Find us at the innovative Syntax Auditorium in Weinheim
               </p>
             </FadeDiv>
           </div>

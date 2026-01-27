@@ -41,7 +41,7 @@ export function Hero() {
             Join SAP developers, architects, and consultants for a day of learning,
           </FadeSpan>{" "}
           <FadeSpan delay={0.6}>
-            networking, and innovation at Syntax IdeaFactory.
+            networking, and innovation at Syntax Auditorium.
           </FadeSpan>
         </p>
 
