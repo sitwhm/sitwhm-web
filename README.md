@@ -1,63 +1,242 @@
-# SAP Inside Track Weinheim 2026 - Solar Version
+# sitWHM 2026 - SAP Inside Track Weinheim
 
-Fourth iteration of the SITWHM conference website built with Next.js 15, Tremor React, and Tailwind CSS 4.
+Minimal dark mode "Save the Date" website for SAP Inside Track Weinheim 2026.
 
-## Features
+## 🎨 Design
 
-- **Modern Stack**: Next.js 15 App Router with TypeScript
-- **Tremor Solar Theme**: Clean, professional design with Syntax brand colors
-- **Responsive**: Mobile-first design that works on all devices
-- **Accessible**: WCAG 2.1 AA compliant
-- **Performance**: Optimized for fast load times
+**Style:** Swiss Minimalism + Brutalism  
+**Colors:** Pure black & white (monochrome)  
+**Typography:** Geist Sans, bold, massive scale (144px hero)  
+**Vibe:** Professional, bold, minimal, sophisticated
 
-## Tech Stack
+**NOT:** AI-shiny, gradients, glows, glassmorphism, colorful
 
-- Next.js 15
-- React 19
-- TypeScript
-- Tremor React
-- Tailwind CSS 4
-- Motion (Framer Motion fork)
-- Geist Font
-
-## Getting Started
-
-Install dependencies:
+## 🚀 Quick Start
 
 ```bash
+# Install
 npm install
-```
 
-Run development server:
-
-```bash
+# Develop
 npm run dev
+
+# Build
+npm run build
+
+# Deploy
+vercel deploy --prod
 ```
 
-Open [http://localhost:3000](http://localhost:3000)
+## 📁 Important Files
 
-## Build
+```
+DESIGN_PROMPT.md              ← How to recreate this design
+QUICK_START.md                ← 20-minute launch guide
+GOOGLE_FORMS_SETUP.md         ← Email notification setup
+LEGAL_COMPLIANCE_SUMMARY.md   ← GDPR compliance guide
+README_FINAL.md               ← Implementation details
+```
+
+## 🎯 Three Modes Available
+
+Edit `app/featureFlags.ts`:
+
+```typescript
+export const featureFlags = {
+  pageMode: 'mystery'  // or 'teaser' or 'full'
+}
+```
+
+| Mode | Style | Use When |
+|------|-------|----------|
+| **mystery** (current) | Minimal dark + countdown | Build hype (6+ months out) |
+| **teaser** | Light & clean | Simple announcement |
+| **full** | Comprehensive | All details ready |
+
+## ✅ Before Launch
+
+1. **Fill your information** in:
+   - `app/imprint/page.tsx`
+   - `app/privacy/page.tsx`
+
+2. **Set up Google Form**:
+   - Create form at forms.google.com
+   - Update URLs in `components/sections/NotifyMeRefined.tsx`
+   - See `GOOGLE_FORMS_SETUP.md` for details
+
+3. **Test everything**:
+   - Form submission works
+   - Countdown shows correctly
+   - Mobile responsive
+   - All links work
+
+## 🎨 Design Details
+
+### Current Page Structure
+
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━
+  sitWHM 2026    Notify Me
+━━━━━━━━━━━━━━━━━━━━━━━━━
+
+      Save the Date
+
+         sitWHM
+
+          2026
+
+    243  ·  15  ·  42
+   Days   Hours   Min
+
+Sept 19, 2026 · Weinheim
+
+      Get Notified
+      ─────────────
+
+━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+### Key Features
+
+- ✅ Pure black background (#000000)
+- ✅ Massive typography (144px heading)
+- ✅ Live countdown timer
+- ✅ Minimal design (no AI shininess)
+- ✅ GDPR-compliant email form
+- ✅ Mobile responsive
+- ✅ Accessible (WCAG AA)
+
+## 📖 Documentation
+
+**Design & Recreation:**
+- `DESIGN_PROMPT.md` - Complete design specification & prompting guide
+
+**Setup & Launch:**
+- `QUICK_START.md` - Launch in 20 minutes
+- `GOOGLE_FORMS_SETUP.md` - Email form setup
+- `YOUR_INFO_TEMPLATE.md` - Fill-in template
+
+**Legal Compliance:**
+- `LEGAL_COMPLIANCE_SUMMARY.md` - GDPR compliance overview
+- `app/imprint/page.tsx` - German Impressum
+- `app/privacy/page.tsx` - Privacy policy
+
+**Technical Details:**
+- `README_FINAL.md` - Implementation summary
+- `MODE_SELECTOR.md` - Comparison of all modes
+- `MYSTERY_MODE.md` - Dark mode guide
+
+## 🔧 Tech Stack
+
+- **Framework:** Next.js 14+ (App Router)
+- **Styling:** Tailwind CSS
+- **Language:** TypeScript
+- **Font:** Geist Sans
+- **Icons:** Remix Icons
+- **Forms:** Google Forms (GDPR-compliant)
+
+## 🎯 Event Details
+
+- **Name:** SAP Inside Track Weinheim (sitWHM)
+- **Date:** September 19th, 2026
+- **Time:** 9:00 AM - 6:00 PM
+- **Location:** Weinheim, Germany
+- **Venue:** Syntax Auditorium
+- **Capacity:** 150 attendees
+- **Price:** Free
+
+## ⚖️ Legal Compliance
+
+✅ **GDPR Compliant:**
+- Explicit consent checkbox
+- Privacy policy with data processor disclosure
+- User rights documented
+- Google Forms integration disclosed
+
+✅ **German TMG Compliant:**
+- Complete Impressum
+- Contact information
+- Liability disclaimers
+
+See `LEGAL_COMPLIANCE_SUMMARY.md` for details.
+
+## 🚀 Deployment
+
+**Recommended:** Vercel (zero-config)
 
 ```bash
-npm run build
-npm run start
+npm install -g vercel
+vercel login
+vercel deploy --prod
 ```
 
-## Sections
+**Alternatives:**
+- Netlify
+- GitLab Pages (`.gitlab-ci.yml` included)
 
-1. **Hero** - Event introduction with CTAs
-2. **About** - Three-column info cards
-3. **Agenda** - Timeline of sessions
-4. **Registration** - Tito.io integration
-5. **Location** - Venue details and map
-6. **Sponsors** - Tiered sponsor display
+## 📝 Quick Commands
 
-## Customization
+```bash
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run start        # Start production server
+npm run lint         # Run linter
+```
 
-- **Colors**: Edit `tailwind.config.ts` and `app/globals.css`
-- **Content**: Update files in `lib/content/`
-- **Site Config**: Modify `app/siteConfig.ts`
+## 🎨 Color Palette
 
-## License
+```css
+--background: #000000;           /* Pure black */
+--text: #FFFFFF;                 /* Pure white */
+--text-muted: rgba(255,255,255,0.4);   /* 40% white */
+--border: rgba(255,255,255,0.1);       /* 10% white */
+--grid: rgba(255,255,255,0.02);        /* 2% white */
+```
 
-MIT
+## 📱 Responsive
+
+Tested at:
+- Mobile: 375px
+- Tablet: 768px
+- Desktop: 1024px
+- Wide: 1440px+
+
+## ♿ Accessibility
+
+- WCAG 2.1 AA compliant
+- 21:1 contrast ratio (white on black)
+- Keyboard navigation
+- Screen reader friendly
+- Respects `prefers-reduced-motion`
+
+## 🤝 Contributing
+
+This is an event website. For design changes:
+1. Review `DESIGN_PROMPT.md` for design principles
+2. Keep it minimal (no AI shininess)
+3. Test on real devices
+4. Maintain GDPR compliance
+
+## 📄 License
+
+Private event website - All rights reserved.
+
+## 🆘 Support
+
+**Questions?**
+- Design: See `DESIGN_PROMPT.md`
+- Setup: See `QUICK_START.md`
+- Legal: See `LEGAL_COMPLIANCE_SUMMARY.md`
+- Forms: See `GOOGLE_FORMS_SETUP.md`
+
+---
+
+**Built with:** ❤️ + Swiss Minimalism + Brutalism
+
+**Design Inspiration:** Apple launches, high-end fashion sites, brutalist portfolios
+
+**NOT Inspired By:** Generic AI landing pages, glassmorphism, gradient madness
+
+---
+
+sitWHM 2026 - A SAP Community Event
