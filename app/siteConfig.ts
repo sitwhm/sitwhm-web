@@ -7,7 +7,7 @@ export const siteConfig = {
     date: "September 19th, 2026",
     time: "9:00 AM - 6:00 PM",
     venue: "Syntax Auditorium",
-    city: "Weinheim",
+    city: "Weinheim an der Bergstraße",
     country: "Germany",
     capacity: 150,
   },

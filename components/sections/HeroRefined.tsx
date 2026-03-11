@@ -17,7 +17,7 @@ export function HeroRefined() {
   }, [])
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-black">
+    <section className="relative min-h-[60vh] overflow-hidden bg-black">
       {/* Subtle grid - very minimal */}
       <div className="pointer-events-none absolute inset-0 opacity-[0.02]"
         style={{
@@ -30,7 +30,7 @@ export function HeroRefined() {
       />
 
       {/* Content */}
-      <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4 py-20 md:px-6">
+      <div className="relative z-10 flex min-h-[60vh] flex-col items-center justify-center px-4 py-20 md:px-6">
         {/* Save the Date - inline with year */}
         <div
           className={`mb-12 transition-all duration-700 ${
@@ -38,7 +38,7 @@ export function HeroRefined() {
           }`}
         >
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-white/60">
-            Save the Date — 19 September 2026
+            Save the Date — September 19, 2026
           </p>
         </div>
 
@@ -89,12 +89,19 @@ export function HeroRefined() {
         >
           <div className="flex items-center gap-2 text-sm">
             <RiCalendarLine className="h-4 w-4" />
-            <span>19 September 2026</span>
+            <span>September 19, 2026</span>
           </div>
           <span className="hidden text-white/20 sm:inline">·</span>
           <div className="flex items-center gap-2 text-sm">
             <RiMapPinLine className="h-4 w-4" />
-            <span>{siteConfig.event.city}</span>
+            <a
+              href="https://www.google.com/maps/search/Weinheim+an+der+Bergstra%C3%9Fe"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border-b border-white/20 transition-colors hover:border-white/60"
+            >
+              {siteConfig.event.city}
+            </a>
           </div>
         </div>
 

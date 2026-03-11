@@ -8,16 +8,10 @@ export function FooterRefined() {
           {/* Legal Links */}
           <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm text-white/40">
             <a
-              href="/imprint"
-              className="border-b border-transparent transition-colors hover:border-white/40 hover:text-white/60"
-            >
-              Impressum
-            </a>
-            <a
               href="/privacy"
               className="border-b border-transparent transition-colors hover:border-white/40 hover:text-white/60"
             >
-              Privacy
+              Privacy Policy
             </a>
           </div>
 

@@ -11,6 +11,7 @@ import { HeroTeaser } from "@/components/sections/HeroTeaser"
 import { NotifyMe } from "@/components/sections/NotifyMe"
 import { HeroRefined } from "@/components/sections/HeroRefined"
 import { NotifyMeRefined } from "@/components/sections/NotifyMeRefined"
+import { AboutSitWHM } from "@/components/sections/AboutSitWHM"
 
 export default function Home() {
   // Mystery mode: Minimal dark teaser with countdown
@@ -18,6 +19,7 @@ export default function Home() {
     return (
       <main className="relative">
         <HeroRefined />
+        <AboutSitWHM />
         <NotifyMeRefined />
       </main>
     )

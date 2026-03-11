@@ -87,12 +87,12 @@ export function NotifyMeRefined() {
           {/* Heading */}
           <div className="mb-12 border-b border-white/10 pb-6">
             <h2 className="text-4xl font-bold text-white sm:text-5xl">
-              Join Waitlist
+              Get Notified
             </h2>
           </div>
 
           <p className="mb-12 text-white/60">
-            Be notified when registration opens and speakers are announced.
+            Be the first to know when registration and call for speakers open.
           </p>
 
           {/* Form */}
@@ -100,7 +100,7 @@ export function NotifyMeRefined() {
             <div className="border border-white/10 bg-white/5 p-8">
               <div className="flex flex-col items-center gap-3">
                 <RiCheckLine className="h-8 w-8 text-white" />
-                <p className="text-white">Added to waitlist</p>
+                <p className="text-white">All set — you'll be the first to know.</p>
                 {submittedEmail && (
                   <p className="text-sm text-white/40">{submittedEmail}</p>
                 )}
@@ -162,8 +162,13 @@ export function NotifyMeRefined() {
                   disabled={!consent || status === "loading"}
                   className="w-full cursor-pointer border border-white bg-white py-3 text-sm font-medium uppercase tracking-wider text-black transition-colors hover:bg-transparent hover:text-white disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:bg-white disabled:hover:text-black sm:w-auto sm:px-12"
                 >
-                  {status === "loading" ? "Sending..." : "Submit"}
+                  {status === "loading" ? "Sending..." : "Notify Me"}
                 </button>
+
+                {/* No spam note */}
+                <p className="mt-4 text-xs text-white/30">
+                  No spam. Unsubscribe anytime.
+                </p>
               </form>
             </>
           )}
