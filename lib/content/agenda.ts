@@ -1,0 +1,88 @@
+import { Session } from "@/lib/types"
+
+export const sessions: Session[] = [
+  {
+    id: "registration",
+    time: "08:30 - 09:00",
+    title: "Registration & Welcome Coffee",
+    speaker: "Organizers",
+    description: "Check-in, grab your badge, and network over coffee.",
+  },
+  {
+    id: "keynote",
+    time: "09:00 - 09:45",
+    title: "Opening Keynote: The Future of SAP Development",
+    speaker: "TBA",
+    description: "Explore the latest trends in SAP BTP, AI integration, and cloud-native development.",
+  },
+  {
+    id: "session1",
+    time: "10:00 - 10:45",
+    title: "Building Scalable Apps with SAP BTP",
+    speaker: "TBA",
+    description: "Learn best practices for architecting and deploying scalable applications on SAP Business Technology Platform.",
+  },
+  {
+    id: "break1",
+    time: "10:45 - 11:00",
+    title: "Coffee Break",
+    speaker: "Networking",
+    description: "Short break to recharge and connect with fellow attendees.",
+  },
+  {
+    id: "session2",
+    time: "11:00 - 11:45",
+    title: "SAP CAP: From Zero to Production",
+    speaker: "TBA",
+    description: "Hands-on session covering CAP fundamentals, data modeling, and deployment strategies.",
+  },
+  {
+    id: "session3",
+    time: "12:00 - 12:45",
+    title: "AI & Machine Learning in SAP Ecosystems",
+    speaker: "TBA",
+    description: "Discover how to integrate AI and ML capabilities into your SAP applications.",
+  },
+  {
+    id: "lunch",
+    time: "12:45 - 14:00",
+    title: "Lunch & Networking",
+    speaker: "Everyone",
+    description: "Enjoy a catered lunch and connect with speakers and attendees.",
+  },
+  {
+    id: "session4",
+    time: "14:00 - 14:45",
+    title: "Modern UI Development with SAPUI5 & Fiori",
+    speaker: "TBA",
+    description: "Best practices for building responsive, accessible user interfaces.",
+  },
+  {
+    id: "session5",
+    time: "15:00 - 15:45",
+    title: "DevOps & CI/CD for SAP Projects",
+    speaker: "TBA",
+    description: "Automate your SAP development workflow with modern DevOps practices.",
+  },
+  {
+    id: "break2",
+    time: "15:45 - 16:00",
+    title: "Afternoon Break",
+    speaker: "Networking",
+    description: "Final coffee break before closing sessions.",
+  },
+  {
+    id: "panel",
+    time: "16:00 - 17:00",
+    title: "Panel Discussion: SAP Community & Open Source",
+    speaker: "Multiple Speakers",
+    description: "Community leaders discuss the role of open source in the SAP ecosystem.",
+  },
+  {
+    id: "closing",
+    time: "17:00 - 17:30",
+    title: "Closing Remarks & Raffle",
+    speaker: "Organizers",
+    description: "Wrap-up, raffle prizes, and see you next year!",
+  },
+]
