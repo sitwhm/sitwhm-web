@@ -53,14 +53,6 @@ export function NotifyMe() {
               </div>
             ) : (
               <>
-                {/*
-                  SETUP INSTRUCTIONS:
-                  1. Create a Google Form at https://forms.google.com/
-                  2. Add an "Email" question (make it required)
-                  3. Click "Send" → Get the pre-filled link
-                  4. Replace ACTION_URL below with: https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse
-                  5. Replace ENTRY_ID below with: entry.YOUR_ENTRY_ID (from the prefilled link)
-                */}
                 <form
                   action="YOUR_GOOGLE_FORM_ACTION_URL"
                   method="POST"
