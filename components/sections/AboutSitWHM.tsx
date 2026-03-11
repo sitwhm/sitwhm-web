@@ -7,9 +7,9 @@ export function AboutSitWHM() {
         <div className="border-t border-white/10 pt-12">
 
           <FadeDiv>
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-white/30">
+            <h2 className="text-2xl font-bold text-white sm:text-3xl">
               What is #sitWHM?
-            </p>
+            </h2>
           </FadeDiv>
 
           <FadeDiv delay={0.1}>
