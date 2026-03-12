@@ -38,7 +38,7 @@ export function HeroRefined() {
           }`}
         >
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-white/60">
-            Save the Date — September 19, 2026
+            Save the Date - September 19, 2026
           </p>
         </div>
 

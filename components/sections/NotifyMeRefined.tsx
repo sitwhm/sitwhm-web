@@ -100,7 +100,7 @@ export function NotifyMeRefined() {
             <div className="border border-white/10 bg-white/5 p-8">
               <div className="flex flex-col items-center gap-3">
                 <RiCheckLine className="h-8 w-8 text-white" />
-                <p className="text-white">All set — you'll be the first to know.</p>
+                <p className="text-white">All set - you'll be the first to know.</p>
                 {submittedEmail && (
                   <p className="text-sm text-white/40">{submittedEmail}</p>
                 )}
