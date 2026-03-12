@@ -16,7 +16,7 @@ export function AboutSitWHM() {
             <p className="mt-8 text-lg leading-relaxed text-white/80 sm:text-xl">
               SAP Inside Track Weinheim is a free, one-day community event
               bringing together SAP developers, consultants, architects, and
-              anyone curious about the SAP ecosystem — from the Rhine-Neckar
+              anyone curious about the SAP ecosystem - from the Rhine-Neckar
               region and beyond.
             </p>
           </FadeDiv>
@@ -32,7 +32,7 @@ export function AboutSitWHM() {
 
           <FadeDiv delay={0.3}>
             <p className="mt-6 text-base leading-relaxed text-white/50">
-              Organized entirely by volunteers — by the community, for the
+              Organized entirely by volunteers - by the community, for the
               community.
             </p>
           </FadeDiv>
