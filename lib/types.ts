@@ -4,6 +4,7 @@ export interface Session {
   title: string
   speaker: string
   description: string
+  speakerId?: string | string[]
   track?: string
 }
 
