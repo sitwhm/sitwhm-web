@@ -8,18 +8,18 @@ export function Sponsors() {
   const silverSponsors = sponsors.filter((s) => s.tier === "silver")
 
   return (
-    <section id="sponsors" className="bg-white py-24">
+    <section id="sponsors" className="bg-black py-24">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <FadeContainer>
           {/* Section Header */}
           <div className="text-center">
             <FadeDiv>
-              <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+              <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
                 Our Sponsors
               </h2>
             </FadeDiv>
             <FadeDiv delay={0.1}>
-              <p className="mt-4 text-lg text-gray-600">
+              <p className="mt-4 text-lg text-white/50">
                 Thank you to our amazing sponsors who make this event possible
               </p>
             </FadeDiv>
@@ -29,7 +29,7 @@ export function Sponsors() {
           {platinumSponsors.length > 0 && (
             <div className="mt-16">
               <FadeDiv delay={0.2}>
-                <h3 className="mb-8 text-center text-2xl font-semibold text-gray-900">
+                <h3 className="mb-8 text-center text-2xl font-semibold text-white">
                   Platinum Sponsors
                 </h3>
               </FadeDiv>
@@ -42,15 +42,15 @@ export function Sponsors() {
                       rel="noopener noreferrer"
                       className="block"
                     >
-                      <div className="rounded-lg border border-gray-200 bg-white p-12 shadow-sm transition-all hover:scale-[1.02] hover:shadow-md">
+                      <div className="rounded-lg border border-white/10 bg-white/5 p-12 transition-all hover:border-white/20">
                         <div className="flex flex-col items-center gap-6 text-center">
                           <div className="flex h-32 items-center justify-center">
-                            <div className="text-4xl font-bold text-syntax-blue">
+                            <div className="text-4xl font-bold text-white">
                               {sponsor.name}
                             </div>
                           </div>
                           {sponsor.description && (
-                            <p className="max-w-2xl text-gray-600">
+                            <p className="max-w-2xl text-white/50">
                               {sponsor.description}
                             </p>
                           )}
@@ -67,7 +67,7 @@ export function Sponsors() {
           {goldSponsors.length > 0 && (
             <div className="mt-16">
               <FadeDiv delay={0.4}>
-                <h3 className="mb-8 text-center text-xl font-semibold text-gray-900">
+                <h3 className="mb-8 text-center text-xl font-semibold text-white">
                   Gold Sponsors
                 </h3>
               </FadeDiv>
@@ -80,8 +80,8 @@ export function Sponsors() {
                       rel="noopener noreferrer"
                       className="block"
                     >
-                      <div className="flex h-full items-center justify-center rounded-lg border border-gray-200 bg-white p-8 shadow-sm transition-all hover:scale-[1.02] hover:shadow-md">
-                        <div className="text-2xl font-semibold text-gray-700">
+                      <div className="flex h-full items-center justify-center rounded-lg border border-white/10 bg-white/5 p-8 transition-all hover:border-white/20">
+                        <div className="text-2xl font-semibold text-white/70">
                           {sponsor.name}
                         </div>
                       </div>
@@ -96,7 +96,7 @@ export function Sponsors() {
           {silverSponsors.length > 0 && (
             <div className="mt-16">
               <FadeDiv delay={0.6}>
-                <h3 className="mb-8 text-center text-lg font-semibold text-gray-900">
+                <h3 className="mb-8 text-center text-lg font-semibold text-white">
                   Silver Sponsors
                 </h3>
               </FadeDiv>
@@ -109,8 +109,8 @@ export function Sponsors() {
                       rel="noopener noreferrer"
                       className="block"
                     >
-                      <div className="flex h-full items-center justify-center rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:scale-[1.02] hover:shadow-md">
-                        <div className="text-lg font-medium text-gray-600">
+                      <div className="flex h-full items-center justify-center rounded-lg border border-white/10 bg-white/5 p-6 transition-all hover:border-white/20">
+                        <div className="text-lg font-medium text-white/50">
                           {sponsor.name}
                         </div>
                       </div>
@@ -123,11 +123,11 @@ export function Sponsors() {
 
           {/* Become a Sponsor CTA */}
           <FadeDiv delay={0.8} className="mt-16 text-center">
-            <div className="rounded-lg border border-gray-200 bg-gray-50 p-8">
-              <h3 className="mb-4 text-2xl font-semibold text-gray-900">
+            <div className="rounded-lg border border-white/10 bg-white/5 p-8">
+              <h3 className="mb-4 text-2xl font-semibold text-white">
                 Interested in Sponsoring?
               </h3>
-              <p className="mb-6 text-gray-600">
+              <p className="mb-6 text-white/50">
                 Support the SAP community and get your brand in front of{" "}
                 {150}+ attendees
               </p>

@@ -68,7 +68,7 @@ function getBodyClasses() {
     return `${base} bg-gray-900 selection:bg-syntax-cyan/30 selection:text-white`
   }
 
-  return `${base} bg-gray-50 selection:bg-syntax-cyan/20 selection:text-syntax-blue`
+  return `${base} bg-black selection:bg-syntax-cyan/30 selection:text-white`
 }
 
 export default function RootLayout({

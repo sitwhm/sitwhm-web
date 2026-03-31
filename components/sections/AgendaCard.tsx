@@ -16,25 +16,25 @@ function SpeakerChip({ speakerId }: { speakerId: string | string[] }) {
   if (resolved.length === 1) {
     const sp = resolved[0]
     return (
-      <div className="flex items-center gap-4 mt-6 pt-5 border-t border-gray-100">
-        <div className="relative h-14 w-14 flex-shrink-0 overflow-hidden rounded-full ring-2 ring-white shadow-md">
+      <div className="flex items-center gap-4 mt-6 pt-5 border-t border-white/10">
+        <div className="relative h-14 w-14 flex-shrink-0 overflow-hidden rounded-full ring-2 ring-white/20 shadow-md">
           <Image src={sp.photo} alt={sp.name} width={56} height={56} className="h-full w-full object-cover" />
         </div>
         <div>
-          <p className="text-base font-semibold text-gray-900">{sp.name}</p>
-          <p className="text-sm text-gray-500 mt-0.5">{sp.title}</p>
+          <p className="text-base font-semibold text-white">{sp.name}</p>
+          <p className="text-sm text-white/40 mt-0.5">{sp.title}</p>
         </div>
       </div>
     )
   }
 
   return (
-    <div className="flex items-center gap-4 mt-6 pt-5 border-t border-gray-100">
+    <div className="flex items-center gap-4 mt-6 pt-5 border-t border-white/10">
       <div className="flex -space-x-3.5">
         {resolved.map((sp, i) => (
           <div
             key={sp.id}
-            className="relative h-14 w-14 flex-shrink-0 overflow-hidden rounded-full ring-2 ring-white shadow-md"
+            className="relative h-14 w-14 flex-shrink-0 overflow-hidden rounded-full ring-2 ring-white/20 shadow-md"
             style={{ zIndex: resolved.length - i }}
           >
             <Image src={sp.photo} alt={sp.name} width={56} height={56} className="h-full w-full object-cover" />
@@ -42,10 +42,10 @@ function SpeakerChip({ speakerId }: { speakerId: string | string[] }) {
         ))}
       </div>
       <div>
-        <p className="text-base font-semibold text-gray-900">
+        <p className="text-base font-semibold text-white">
           {resolved.map((s) => s.name.split(" ")[0]).join(", ")}
         </p>
-        <p className="text-sm text-gray-500 mt-0.5">Panel speakers</p>
+        <p className="text-sm text-white/40 mt-0.5">Panel speakers</p>
       </div>
     </div>
   )
@@ -56,11 +56,11 @@ export function AgendaCard({ session }: { session: Session }) {
 
   return (
     <div
-      className="group flex-1 rounded-2xl border border-gray-100 bg-white p-7 shadow-sm transition-all duration-200 hover:border-gray-200 hover:shadow-lg cursor-pointer"
+      className="group flex-1 rounded-2xl border border-white/10 bg-white/5 p-7 transition-all duration-200 hover:border-white/20 cursor-pointer"
       onClick={() => setExpanded((v) => !v)}
     >
       {/* Title */}
-      <h3 className="text-xl font-bold leading-snug text-gray-900 group-hover:text-syntax-blue transition-colors duration-200 pr-8">
+      <h3 className="text-xl font-bold leading-snug text-white group-hover:text-white/80 transition-colors duration-200 pr-8">
         {session.title}
       </h3>
 
@@ -68,7 +68,7 @@ export function AgendaCard({ session }: { session: Session }) {
       <div className="mt-3 relative">
         <p
           className={[
-            "text-base leading-relaxed text-gray-500 transition-all duration-300",
+            "text-base leading-relaxed text-white/50 transition-all duration-300",
             expanded ? "" : "line-clamp-3",
           ].join(" ")}
         >
@@ -77,13 +77,13 @@ export function AgendaCard({ session }: { session: Session }) {
 
         {/* Fade gradient — only when collapsed */}
         {!expanded && (
-          <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-white to-transparent pointer-events-none" />
+          <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-[rgb(13,13,13)] to-transparent pointer-events-none" />
         )}
       </div>
 
       {/* Read more / less button */}
       <button
-        className="mt-3 flex items-center gap-1 text-sm font-medium text-syntax-blue hover:text-syntax-blue/70 transition-colors"
+        className="mt-3 flex items-center gap-1 text-sm font-medium text-white/60 hover:text-white transition-colors"
         onClick={(e) => { e.stopPropagation(); setExpanded((v) => !v) }}
       >
         {expanded ? "Show less" : "Read more"}

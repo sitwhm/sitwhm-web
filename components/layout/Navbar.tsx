@@ -30,14 +30,14 @@ export function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white shadow-sm" : "bg-white/80 backdrop-blur-sm"
+        isScrolled ? "bg-black/90 backdrop-blur-md" : "bg-transparent"
       }`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-6">
         <Link href="/" className="flex items-center gap-2">
           <div className="flex flex-col">
-            <span className="text-xs font-medium text-gray-600">SAP Inside Track</span>
-            <span className="bg-gradient-to-r from-syntax-blue to-syntax-cyan bg-clip-text text-lg font-bold text-transparent">
+            <span className="text-xs font-medium text-white/50">SAP Inside Track</span>
+            <span className="text-lg font-bold text-white">
               SITWHM 2026
             </span>
           </div>
@@ -48,7 +48,7 @@ export function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-gray-700 transition-colors hover:text-syntax-blue"
+              className="text-sm font-medium text-white/60 transition-colors hover:text-white"
             >
               {link.label}
             </a>
@@ -64,7 +64,7 @@ export function Navbar() {
         </div>
 
         <button
-          className="md:hidden"
+          className="text-white md:hidden"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -77,13 +77,13 @@ export function Navbar() {
       </nav>
 
       {isMobileMenuOpen && (
-        <div className="border-t border-gray-200 bg-white md:hidden">
+        <div className="border-t border-white/10 bg-black/95 backdrop-blur-md md:hidden">
           <div className="flex flex-col space-y-4 px-4 py-6">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-base font-medium text-gray-700 hover:text-syntax-blue"
+                className="text-base font-medium text-white/70 hover:text-white"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.label}
