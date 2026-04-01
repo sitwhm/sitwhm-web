@@ -34,7 +34,7 @@ export function FridayProgram() {
                     <h3 className="text-xl font-semibold text-gray-900">
                       SAP CodeJam
                     </h3>
-                    <p className="mt-1 text-sm text-gray-500">
+                    <p className="mt-1 text-sm text-gray-400">
                       Hands-on workshop led by SAP experts
                     </p>
                   </div>
@@ -71,7 +71,7 @@ export function FridayProgram() {
 
                 {/* Prerequisites note */}
                 <div className="mt-4 rounded-lg bg-gray-50 p-4">
-                  <p className="flex items-start gap-2 text-xs text-gray-500">
+                  <p className="flex items-start gap-2 text-xs text-gray-400">
                     <RiMacbookLine className="mt-0.5 h-3.5 w-3.5 shrink-0" />
                     Bring your own laptop. Prerequisites will be shared before the event.
                   </p>
@@ -97,7 +97,7 @@ export function FridayProgram() {
                     <h3 className="text-xl font-semibold text-gray-900">
                       Pre-Evening Get-Together
                     </h3>
-                    <p className="mt-1 text-sm text-gray-500">
+                    <p className="mt-1 text-sm text-gray-400">
                       Casual dinner and drinks the night before
                     </p>
                   </div>
@@ -130,7 +130,7 @@ export function FridayProgram() {
 
                 {/* Note */}
                 <div className="mt-4 rounded-lg bg-gray-50 p-4">
-                  <p className="text-xs text-gray-500">
+                  <p className="text-xs text-gray-400">
                     Food and drinks at your own expense. We'll reserve seats once we
                     know how many people are interested.
                   </p>

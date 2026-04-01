@@ -36,15 +36,15 @@ export function Registration() {
                   }}
                 />
                 <div className="relative">
-                  <p className="text-sm font-medium uppercase tracking-widest text-blue-200/60">
+                  <p className="text-sm font-medium uppercase tracking-widest text-white/60">
                     Registration
                   </p>
-                  <h2 className="mt-4 text-3xl font-extrabold leading-tight text-white sm:text-4xl md:text-5xl">
+                  <h2 className="mt-4 text-2xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
                     Join Us
                     <br />
                     <span className="text-syntax-cyan">for Free</span>
                   </h2>
-                  <p className="mt-4 text-base text-blue-200/70">
+                  <p className="mt-4 text-sm text-white/60">
                     Limited to {siteConfig.event.capacity} attendees — register early!
                   </p>
                 </div>
@@ -54,8 +54,8 @@ export function Registration() {
               <div className="flex flex-col justify-center rounded-2xl bg-white px-8 py-12 md:px-12 md:py-16">
                 {/* FREE badge */}
                 <div className="text-center">
-                  <div className="text-4xl font-extrabold text-syntax-blue">FREE</div>
-                  <p className="mt-1 text-sm text-gray-500">Community-supported event</p>
+                  <div className="text-4xl font-bold text-syntax-blue">FREE</div>
+                  <p className="mt-1 text-sm text-gray-400">Community-supported event</p>
                 </div>
 
                 {/* Spots indicator */}
@@ -77,7 +77,7 @@ export function Registration() {
                         <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-syntax-green/10">
                           <RiCheckLine className="h-3.5 w-3.5 text-syntax-green" />
                         </div>
-                        <span className="text-sm text-gray-700">{item}</span>
+                        <span className="text-sm text-gray-600">{item}</span>
                       </li>
                     ))}
                   </ul>

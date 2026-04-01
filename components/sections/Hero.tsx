@@ -33,7 +33,7 @@ function CountdownUnit({ value, label }: { value: number; label: string }) {
   return (
     <div className="flex flex-col items-center">
       <div className="relative flex h-16 w-16 items-center justify-center rounded-xl bg-white/90 shadow-sm ring-1 ring-black/5 backdrop-blur-sm sm:h-20 sm:w-20">
-        <span className="text-2xl font-bold tabular-nums text-syntax-blue sm:text-3xl">
+        <span className="text-2xl font-bold tabular-nums text-syntax-blue sm:text-2xl">
           {String(value).padStart(2, "0")}
         </span>
       </div>
@@ -74,7 +74,7 @@ export function Hero() {
         </FadeDiv>
 
         {/* Main Heading */}
-        <h1 className="mt-8 text-center text-4xl font-extrabold leading-[1.08] tracking-tight text-gray-900 sm:text-6xl md:text-7xl lg:text-8xl">
+        <h1 className="mt-8 text-center text-4xl font-bold leading-[1.08] tracking-tight text-gray-900 sm:text-5xl md:text-7xl lg:text-7xl">
           <FadeSpan delay={0.1}>SAP Inside Track</FadeSpan>
           <br />
           <span className="bg-gradient-to-r from-syntax-blue via-syntax-cyan to-syntax-blue bg-[length:200%_auto] bg-clip-text text-transparent">
@@ -84,7 +84,7 @@ export function Hero() {
 
         {/* Subtitle */}
         <FadeDiv delay={0.3}>
-          <p className="mx-auto mt-5 max-w-xl text-center text-base leading-relaxed text-gray-600 sm:text-lg">
+          <p className="mx-auto mt-5 max-w-xl text-center text-sm leading-relaxed text-gray-600 sm:text-lg">
             Join SAP developers, architects, and consultants for a day of learning, networking, and innovation.
           </p>
         </FadeDiv>
@@ -95,12 +95,12 @@ export function Hero() {
             <RiCalendarLine className="h-4 w-4 text-syntax-blue/60" />
             <span>{siteConfig.event.date}</span>
           </div>
-          <span className="hidden text-gray-200 sm:inline">|</span>
+          <span className="hidden text-gray-300 sm:inline">|</span>
           <div className="flex items-center gap-1.5">
             <RiTimeLine className="h-4 w-4 text-syntax-blue/60" />
             <span>{siteConfig.event.time}</span>
           </div>
-          <span className="hidden text-gray-200 sm:inline">|</span>
+          <span className="hidden text-gray-300 sm:inline">|</span>
           <div className="flex items-center gap-1.5">
             <RiMapPinLine className="h-4 w-4 text-syntax-blue/60" />
             <span>{siteConfig.event.venue}, {siteConfig.event.city}</span>
@@ -111,11 +111,11 @@ export function Hero() {
         <FadeDiv delay={0.4} className="mt-10">
           <div className="flex items-center gap-3 sm:gap-5">
             <CountdownUnit value={countdown.days} label="Days" />
-            <span className="mt-[-1.25rem] text-xl font-light text-gray-300 sm:mt-[-1.5rem]">:</span>
+            <span className="mt-[-1.25rem] text-xl font-medium text-gray-300 sm:mt-[-1.5rem]">:</span>
             <CountdownUnit value={countdown.hours} label="Hours" />
-            <span className="mt-[-1.25rem] text-xl font-light text-gray-300 sm:mt-[-1.5rem]">:</span>
+            <span className="mt-[-1.25rem] text-xl font-medium text-gray-300 sm:mt-[-1.5rem]">:</span>
             <CountdownUnit value={countdown.minutes} label="Mins" />
-            <span className="mt-[-1.25rem] text-xl font-light text-gray-300 sm:mt-[-1.5rem]">:</span>
+            <span className="mt-[-1.25rem] text-xl font-medium text-gray-300 sm:mt-[-1.5rem]">:</span>
             <CountdownUnit value={countdown.seconds} label="Secs" />
           </div>
         </FadeDiv>

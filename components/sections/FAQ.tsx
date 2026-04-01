@@ -66,7 +66,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
       aria-expanded={open}
     >
       <div className="flex items-center justify-between gap-4">
-        <h3 className="text-base font-semibold text-gray-900">{question}</h3>
+        <h3 className="text-sm font-semibold text-gray-900">{question}</h3>
         <RiArrowDownSLine
           className={`h-5 w-5 shrink-0 text-gray-400 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
         />
@@ -115,7 +115,7 @@ export function FAQ() {
 
           {/* More questions */}
           <FadeDiv delay={0.3} className="mx-auto mt-8 max-w-3xl text-center">
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-gray-400">
               Still have questions? Reach out to us at{" "}
               <a href="mailto:team@sitwhm.de" className="text-syntax-blue hover:underline">
                 team@sitwhm.de

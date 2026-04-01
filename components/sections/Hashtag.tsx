@@ -11,13 +11,13 @@ export function Hashtag() {
       <div className="relative z-10 mx-auto max-w-6xl px-4 md:px-6">
         <FadeContainer className="text-center">
           <FadeDiv>
-            <p className="text-sm font-medium uppercase tracking-[0.2em] text-gray-500">
+            <p className="text-sm font-medium uppercase tracking-[0.2em] text-gray-400">
               Spread the word
             </p>
           </FadeDiv>
 
           <FadeDiv delay={0.1}>
-            <h2 className="mt-4 text-6xl font-extrabold tracking-tight text-white sm:text-7xl lg:text-8xl">
+            <h2 className="mt-4 text-5xl font-bold tracking-tight text-white sm:text-7xl lg:text-7xl">
               <span className="bg-gradient-to-r from-syntax-cyan to-syntax-green bg-clip-text text-transparent">
                 #sitWHM
               </span>

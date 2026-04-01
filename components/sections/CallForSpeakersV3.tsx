@@ -12,7 +12,7 @@ import { RiArrowRightLine } from "@remixicon/react"
 
 export function CallForSpeakersV3() {
   return (
-    <section id="speakers-call" className="relative overflow-hidden bg-syntax-blue py-28">
+    <section id="speakers-call" className="relative overflow-hidden bg-syntax-blue py-24">
       {/* Background glows — matching Registration */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -right-20 -top-20 h-80 w-80 rounded-full bg-syntax-cyan/10 blur-3xl" />
@@ -35,10 +35,10 @@ export function CallForSpeakersV3() {
                   }}
                 />
                 <div className="relative">
-                  <p className="text-sm font-medium uppercase tracking-widest text-blue-200/60">
+                  <p className="text-sm font-medium uppercase tracking-widest text-white/60">
                     Call for Speakers
                   </p>
-                  <h2 className="mt-4 text-3xl font-extrabold leading-tight text-white sm:text-4xl md:text-5xl">
+                  <h2 className="mt-4 text-2xl font-bold leading-tight text-white sm:text-4xl md:text-5xl">
                     Your Story
                     <br />
                     Belongs

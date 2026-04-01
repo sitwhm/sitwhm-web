@@ -25,7 +25,7 @@ export function Agenda() {
           <FadeDiv delay={0.2} className="mt-12">
             <div className="rounded-xl border border-dashed border-gray-300 bg-gray-50 p-10 text-center">
               <RiCalendarLine className="mx-auto h-10 w-10 text-gray-300" />
-              <h3 className="mt-4 text-lg font-semibold text-gray-700">
+              <h3 className="mt-4 text-lg font-semibold text-gray-900">
                 Agenda coming soon
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-gray-600">

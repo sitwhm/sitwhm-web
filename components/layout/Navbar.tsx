@@ -96,7 +96,7 @@ export function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="cursor-pointer rounded-lg px-3 py-2.5 text-base font-medium text-gray-700 transition-colors hover:bg-gray-50 hover:text-syntax-blue"
+              className="cursor-pointer rounded-lg px-3 py-2.5 text-sm font-medium text-gray-900 transition-colors hover:bg-gray-50 hover:text-syntax-blue"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {link.label}

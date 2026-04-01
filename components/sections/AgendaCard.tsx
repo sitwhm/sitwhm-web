@@ -21,8 +21,8 @@ function SpeakerChip({ speakerId }: { speakerId: string | string[] }) {
           <Image src={sp.photo} alt={sp.name} width={56} height={56} className="h-full w-full object-cover" />
         </div>
         <div>
-          <p className="text-base font-semibold text-gray-900">{sp.name}</p>
-          <p className="text-sm text-gray-500 mt-0.5">{sp.title}</p>
+          <p className="text-sm font-semibold text-gray-900">{sp.name}</p>
+          <p className="text-sm text-gray-400 mt-0.5">{sp.title}</p>
         </div>
       </div>
     )
@@ -42,10 +42,10 @@ function SpeakerChip({ speakerId }: { speakerId: string | string[] }) {
         ))}
       </div>
       <div>
-        <p className="text-base font-semibold text-gray-900">
+        <p className="text-sm font-semibold text-gray-900">
           {resolved.map((s) => s.name.split(" ")[0]).join(", ")}
         </p>
-        <p className="text-sm text-gray-500 mt-0.5">Panel speakers</p>
+        <p className="text-sm text-gray-400 mt-0.5">Panel speakers</p>
       </div>
     </div>
   )
@@ -68,7 +68,7 @@ export function AgendaCard({ session }: { session: Session }) {
       <div className="mt-3 relative">
         <p
           className={[
-            "text-base leading-relaxed text-gray-600 transition-all duration-300",
+            "text-sm leading-relaxed text-gray-600 transition-all duration-300",
             expanded ? "" : "line-clamp-3",
           ].join(" ")}
         >

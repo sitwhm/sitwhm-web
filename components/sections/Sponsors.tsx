@@ -81,7 +81,7 @@ export function Sponsors() {
                       className="block cursor-pointer"
                     >
                       <div className="flex h-full items-center justify-center rounded-xl border border-gray-100 bg-white p-8 shadow-sm transition-all hover:border-syntax-blue/20 hover:shadow-md hover:-translate-y-0.5">
-                        <div className="text-2xl font-semibold text-gray-700">
+                        <div className="text-2xl font-semibold text-gray-900">
                           {sponsor.name}
                         </div>
                       </div>
