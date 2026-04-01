@@ -57,4 +57,18 @@ export const speakers: Person[] = [
     bio: "Speaker details will be announced soon. Stay tuned!",
     photo: "/people/placeholder.svg",
   },
+  {
+    id: "speaker-9",
+    name: "Speaker 9 — To Be Announced",
+    title: "Topic coming soon",
+    bio: "Speaker details will be announced soon. Stay tuned!",
+    photo: "/people/placeholder.svg",
+  },
+  {
+    id: "speaker-10",
+    name: "Speaker 10 — To Be Announced",
+    title: "Topic coming soon",
+    bio: "Speaker details will be announced soon. Stay tuned!",
+    photo: "/people/placeholder.svg",
+  },
 ]

@@ -12,9 +12,11 @@ export const siteConfig = {
     capacity: 150,
   },
   registration: {
-    url: "https://ti.to/sitwhm/2026",
-    titoEventId: "sitwhm/2026",
+    url: "https://ti.to/sitwhm/sitwhm2026",
+    titoEventId: "sitwhm/sitwhm2026",
     price: "Free",
+    releases: [] as string[],
+    discountCode: undefined as string | undefined,
   },
   social: {
     twitter: "@sitwhm",

@@ -187,3 +187,91 @@
     opacity: 100;
   }
 }
+
+/* ─── Tito Inline Widget Overrides (Option A) ─────────────────────────────── */
+/* These rules style the DOM injected by Tito's inline widget after hydration.  */
+/* Tailwind utility classes cannot target Tito's injected elements, so global   */
+/* CSS selectors are the correct approach here.                                 */
+
+.tito-inline-widget-container tito-widget {
+  display: block;
+}
+
+.tito-releases {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-family: inherit;
+}
+
+.tito-release {
+  border: 1px solid var(--color-gray-200, #e5e7eb);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: #fff;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.tito-release:hover {
+  border-color: var(--color-syntax-blue, #0632a0);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-syntax-blue, #0632a0) 8%, transparent);
+}
+
+.tito-release-title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #111827;
+  font-family: inherit;
+}
+
+.tito-release-description {
+  font-size: 0.8125rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+  font-family: inherit;
+}
+
+.tito-release-price {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-syntax-blue, #0632a0);
+  margin-top: 0.375rem;
+  font-family: inherit;
+}
+
+.tito-release-quantity {
+  margin-top: 0.5rem;
+  border: 1px solid var(--color-gray-200, #e5e7eb);
+  border-radius: 0.5rem;
+  padding: 0.375rem 0.625rem;
+  font-size: 0.875rem;
+  font-family: inherit;
+  width: 5rem;
+}
+
+.tito-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  width: 100%;
+  background-color: var(--color-syntax-blue, #0632a0);
+  color: #fff;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 150ms ease, box-shadow 150ms ease;
+  font-family: inherit;
+}
+
+.tito-submit:hover {
+  background-color: #052885;
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--color-syntax-blue, #0632a0) 30%, transparent);
+}
+
+.tito-submit:active {
+  transform: scale(0.98);
+}

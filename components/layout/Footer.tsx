@@ -1,5 +1,5 @@
 import { siteConfig } from "@/app/siteConfig"
-import { RiGithubFill, RiLinkedinBoxFill, RiTwitterXFill, RiHeartFill } from "@remixicon/react"
+import { RiHeartFill } from "@remixicon/react"
 import Link from "next/link"
 
 const footerLinks = [
@@ -9,9 +9,6 @@ const footerLinks = [
   { href: "#location", label: "Location" },
   { href: "#speakers", label: "Speakers" },
 ]
-
-const shareText = encodeURIComponent(`Join me at ${siteConfig.name} - a free community tech conference on ${siteConfig.event.date} in ${siteConfig.event.city}! #sitWHM`)
-const shareUrl = encodeURIComponent(siteConfig.url)
 
 export function Footer() {
   return (
@@ -50,38 +47,9 @@ export function Footer() {
 
           <div>
             <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-300">
-              Share & Connect
+              Legal
             </h3>
-            <div className="flex gap-4">
-              <a
-                href={`https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cursor-pointer text-gray-400 transition-colors hover:text-syntax-cyan"
-                aria-label="Share on X / Twitter"
-              >
-                <RiTwitterXFill className="h-6 w-6" />
-              </a>
-              <a
-                href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cursor-pointer text-gray-400 transition-colors hover:text-syntax-cyan"
-                aria-label="Share on LinkedIn"
-              >
-                <RiLinkedinBoxFill className="h-6 w-6" />
-              </a>
-              <a
-                href={`https://github.com/${siteConfig.social.github}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="cursor-pointer text-gray-400 transition-colors hover:text-syntax-cyan"
-                aria-label="GitHub"
-              >
-                <RiGithubFill className="h-6 w-6" />
-              </a>
-            </div>
-            <div className="mt-6 space-y-2">
+            <div className="space-y-2">
               <Link
                 href="/code-of-conduct"
                 className="block text-sm text-gray-400 hover:text-syntax-cyan"

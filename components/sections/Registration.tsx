@@ -1,8 +1,10 @@
 import { siteConfig } from "@/app/siteConfig"
+import { featureFlags } from "@/app/featureFlags"
 import { FadeContainer, FadeDiv } from "@/components/Fade"
-import { TitoWidget } from "@/components/TitoWidget"
+import { TitoWidgetInline } from "@/components/TitoWidgetInline"
 import { RiCheckLine, RiGroupLine } from "@remixicon/react"
 import Link from "next/link"
+import { cn } from "@/lib/utils"
 
 const includedItems = [
   "Full day access to all sessions",
@@ -10,6 +12,15 @@ const includedItems = [
   "Networking opportunities",
   "Access to speaker Q&A",
 ]
+
+const testMode = process.env.NEXT_PUBLIC_TITO_TEST_MODE === "true"
+
+const buttonClasses = cn(
+  "inline-flex items-center justify-center rounded-lg font-semibold transition-all duration-200",
+  "focus:outline-none focus:ring-2 focus:ring-syntax-blue/40 focus:ring-offset-2",
+  "bg-syntax-blue text-white hover:bg-[#052885] shadow-md hover:shadow-lg active:scale-[0.98]",
+  "w-full px-8 py-3.5 text-sm sm:text-lg",
+)
 
 export function Registration() {
   return (
@@ -83,9 +94,25 @@ export function Registration() {
                   </ul>
                 </div>
 
-                {/* Tito.io Widget */}
+                {/* Tito Integration — switch between Option A and Option B */}
                 <div className="mt-6">
-                  <TitoWidget eventId="sitwhm/2026" />
+                  {featureFlags.titoMode === "a" ? (
+                    <TitoWidgetInline
+                      eventId={siteConfig.registration.titoEventId}
+                      testMode={testMode}
+                      discountCode={siteConfig.registration.discountCode}
+                      releases={siteConfig.registration.releases}
+                    />
+                  ) : (
+                    <a
+                      href={siteConfig.registration.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={buttonClasses}
+                    >
+                      Save Your Free Spot
+                    </a>
+                  )}
                 </div>
 
                 {/* Note */}

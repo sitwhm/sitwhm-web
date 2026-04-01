@@ -15,19 +15,23 @@ const faqs = [
   },
   {
     question: "Will there be food and drinks?",
-    answer: "Absolutely. We provide breakfast, lunch, coffee, and drinks throughout the day. Nobody should have to think on an empty stomach.",
+    answer: "Yes! Lunch and drinks are covered. Depending on sponsors and attendee numbers we may be able to offer more - stay tuned.",
   },
   {
     question: "What should I bring?",
-    answer: "A laptop (optional), curiosity (mandatory), and community stickers (highly encouraged). If you're attending the CodeJam on Friday, a laptop with the prerequisites installed is required.",
+    answer: "Curiosity (mandatory) and community stickers (highly encouraged). That's really all you need.",
   },
   {
     question: "Is the venue wheelchair accessible?",
-    answer: "Please contact us at team@sitwhm.de for details about accessibility at the venue. We want to make sure everyone can participate comfortably.",
+    answer: "Yes! The venue is wheelchair accessible. If you have any specific requirements, feel free to reach out to us at team@sitwhm.de so we can make sure everything is set up for you.",
   },
   {
     question: "Will sessions be recorded?",
-    answer: "We plan to record sessions and make them available on YouTube after the event. Speakers can opt out of recording if they prefer.",
+    answer: "No. This is an onsite-only event - no recordings, no livestream. If you want to catch the talks, come join us in person!",
+  },
+  {
+    question: "What's an SAP CodeJam?",
+    answer: "A CodeJam is a free, full-day hands-on workshop run by an SAP expert. You spend the day working through real exercises on a specific SAP technology with guidance right there in the room. It's not a lecture: you code, you ask questions, you learn by doing. Groups are small (around 25 people) so you get real face time with the expert. We host one the day before the main event - it's the perfect warm-up. Note: the CodeJam requires a separate signup, so make sure to register for it in addition to the main conference.",
   },
   {
     question: "Can I transfer my ticket?",
@@ -50,13 +54,8 @@ const faqs = [
 function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [open, setOpen] = useState(false)
   const contentRef = useRef<HTMLDivElement>(null)
-  const [height, setHeight] = useState(0)
 
-  useEffect(() => {
-    if (contentRef.current) {
-      setHeight(contentRef.current.scrollHeight)
-    }
-  }, [answer])
+  const getHeight = () => contentRef.current?.scrollHeight ?? 0
 
   return (
     <button
@@ -73,10 +72,10 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
       </div>
       <div
         className="overflow-hidden transition-all duration-300 ease-in-out"
-        style={{ maxHeight: open ? `${height}px` : "0px", opacity: open ? 1 : 0 }}
+        style={{ maxHeight: open ? `${getHeight() + 16}px` : "0px", opacity: open ? 1 : 0 }}
       >
         <div ref={contentRef}>
-          <p className="mt-3 pr-8 text-sm leading-relaxed text-gray-600">
+          <p className="mt-3 pb-2 pr-8 text-sm leading-relaxed text-gray-600">
             {answer}
           </p>
         </div>

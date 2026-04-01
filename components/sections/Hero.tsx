@@ -1,8 +1,10 @@
 "use client"
 
 import { siteConfig } from "@/app/siteConfig"
+import { featureFlags } from "@/app/featureFlags"
 import { Button } from "@/components/ui/Button"
 import { FadeContainer, FadeDiv, FadeSpan } from "@/components/Fade"
+import { titoPopupHref } from "@/components/TitoPopup"
 import { RiArrowRightLine, RiCalendarLine, RiMapPinLine, RiTimeLine } from "@remixicon/react"
 import { useEffect, useState } from "react"
 
@@ -122,7 +124,8 @@ export function Hero() {
 
         {/* CTAs */}
         <FadeDiv delay={0.5} className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-          <a href="#registration">
+          {/* Option B opens Tito overlay directly; Option A scrolls to the inline widget */}
+          <a href={featureFlags.titoMode === 'b' ? siteConfig.registration.url : "#registration"} {...(featureFlags.titoMode === 'b' ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
             <Button size="lg" className="cursor-pointer shadow-lg shadow-syntax-blue/20 transition-all hover:shadow-xl hover:shadow-syntax-blue/30">
               Save Your Free Spot
             </Button>

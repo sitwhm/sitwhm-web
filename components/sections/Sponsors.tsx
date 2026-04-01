@@ -1,6 +1,7 @@
 import { sponsors } from "@/lib/content/sponsors"
 import { Button } from "@/components/ui/Button"
 import { FadeContainer, FadeDiv } from "@/components/Fade"
+import Image from "next/image"
 
 export function Sponsors() {
   const platinumSponsors = sponsors.filter((s) => s.tier === "platinum")
@@ -45,9 +46,19 @@ export function Sponsors() {
                       <div className="rounded-xl border border-gray-100 bg-white p-8 shadow-sm transition-all hover:border-syntax-blue/20 hover:shadow-md hover:-translate-y-0.5">
                         <div className="flex flex-col items-center gap-6 text-center">
                           <div className="flex h-32 items-center justify-center">
-                            <div className="text-4xl font-bold text-syntax-blue">
-                              {sponsor.name}
-                            </div>
+                            {sponsor.logo && !sponsor.logo.includes("placeholder") ? (
+                              <Image
+                                src={sponsor.logo}
+                                alt={sponsor.name}
+                                width={280}
+                                height={70}
+                                className="h-16 w-auto object-contain"
+                              />
+                            ) : (
+                              <div className="text-4xl font-bold text-syntax-blue">
+                                {sponsor.name}
+                              </div>
+                            )}
                           </div>
                           {sponsor.description && (
                             <p className="max-w-2xl text-gray-600">

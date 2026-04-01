@@ -12,4 +12,14 @@ export const featureFlags = {
    * - 'mystery': Premium dark mode with countdown and reveal effects
    */
   pageMode: 'full' as 'full' | 'teaser' | 'mystery',
-} as const
+
+  /**
+   * Tito registration integration mode:
+   * - 'a': Inline embedded widget — ticket list renders directly on the page,
+   *        styled with brand CSS. Best if you want full visual control over
+   *        the ticket selection UI.
+   * - 'b': Popup button — a CTA button opens Tito's overlay on click.
+   *        Simplest option; Tito handles all checkout UI in its own overlay.
+   */
+  titoMode: 'b' as 'a' | 'b',
+}

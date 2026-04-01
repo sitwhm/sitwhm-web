@@ -5,7 +5,7 @@ export const sponsors: Sponsor[] = [
     id: "syntax",
     name: "Syntax",
     tier: "platinum",
-    logo: "/logos/syntax.svg",
+    logo: "/logos/syntax.png",
     website: "https://www.syntax.com",
     description: "Leading provider of SAP managed services and cloud solutions.",
   },

@@ -1,6 +1,9 @@
 "use client"
 
+import { featureFlags } from "@/app/featureFlags"
+import { siteConfig } from "@/app/siteConfig"
 import { Button } from "@/components/ui/Button"
+import { titoPopupHref } from "@/components/TitoPopup"
 import { RiCloseLine, RiMenuLine } from "@remixicon/react"
 import Link from "next/link"
 import { useEffect, useState } from "react"
@@ -67,8 +70,8 @@ export function Navbar() {
         </div>
 
         <div className="hidden md:block">
-          <a href="#registration">
-            <Button size="sm">Save Your Spot</Button>
+          <a href={featureFlags.titoMode === 'b' ? siteConfig.registration.url : "#registration"} {...(featureFlags.titoMode === 'b' ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
+            <Button size="sm">Save Your Free Spot</Button>
           </a>
         </div>
 
@@ -103,7 +106,11 @@ export function Navbar() {
             </a>
           ))}
           <div className="pt-2">
-            <a href="#registration" onClick={() => setIsMobileMenuOpen(false)}>
+            <a
+              href={featureFlags.titoMode === 'b' ? siteConfig.registration.url : "#registration"}
+              {...(featureFlags.titoMode === 'b' ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
               <Button className="w-full">Save Your Free Spot</Button>
             </a>
           </div>

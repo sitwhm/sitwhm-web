@@ -23,9 +23,9 @@ export function Speakers() {
           </div>
 
           {/* Speakers Grid */}
-          <div className="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-16 flex flex-wrap justify-center gap-8">
             {speakers.map((speaker, index) => (
-              <FadeDiv key={speaker.id} delay={0.05 * (index + 2)}>
+              <FadeDiv key={speaker.id} delay={0.05 * (index + 2)} className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)]">
                 <div className="group h-full rounded-xl border border-gray-100 bg-white p-8 text-center shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5 hover:border-syntax-blue/20">
                   {/* Avatar */}
                   <div className="mx-auto mb-4 h-24 w-24 overflow-hidden rounded-full ring-2 ring-gray-100 transition-all group-hover:ring-syntax-blue/30">
