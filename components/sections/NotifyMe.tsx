@@ -97,6 +97,7 @@ export function NotifyMe() {
                           href="/privacy"
                           className="text-syntax-blue hover:underline"
                           target="_blank"
+                          rel="noopener noreferrer"
                         >
                           Privacy Policy
                         </a>

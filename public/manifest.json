@@ -1,0 +1,16 @@
+{
+  "name": "SAP Inside Track Weinheim 2026",
+  "short_name": "SITWHM 2026",
+  "description": "Free community tech conference for SAP developers",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0632A0",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

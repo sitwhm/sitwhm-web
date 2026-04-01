@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300">
+  <rect width="300" height="300" fill="#E5E7EB"/>
+  <circle cx="150" cy="120" r="50" fill="#9CA3AF"/>
+  <ellipse cx="150" cy="250" rx="80" ry="60" fill="#9CA3AF"/>
+  <text x="150" y="290" text-anchor="middle" fill="#6B7280" font-family="system-ui" font-size="14">TBA</text>
+</svg>

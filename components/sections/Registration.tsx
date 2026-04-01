@@ -1,72 +1,105 @@
 import { siteConfig } from "@/app/siteConfig"
 import { FadeContainer, FadeDiv } from "@/components/Fade"
 import { TitoWidget } from "@/components/TitoWidget"
-import { RiCheckLine } from "@remixicon/react"
+import { RiCheckLine, RiGroupLine } from "@remixicon/react"
+import Link from "next/link"
 
 const includedItems = [
   "Full day access to all sessions",
-  "Lunch and refreshments",
+  "Catering throughout the day",
   "Networking opportunities",
-  "Conference swag bag",
   "Access to speaker Q&A",
 ]
 
 export function Registration() {
   return (
-    <section id="registration" className="bg-white py-24">
-      <div className="mx-auto max-w-6xl px-4 md:px-6">
-        <FadeContainer>
-          {/* Section Header */}
-          <div className="text-center">
-            <FadeDiv>
-              <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-                Join Us for Free
-              </h2>
-            </FadeDiv>
-            <FadeDiv delay={0.1}>
-              <p className="mt-4 text-lg text-gray-600">
-                Limited to {siteConfig.event.capacity} attendees - register early!
-              </p>
-            </FadeDiv>
-          </div>
-
-          {/* Registration Card */}
-          <FadeDiv delay={0.2} className="mx-auto mt-12 max-w-2xl">
-            <div className="rounded-lg border border-gray-200 bg-white p-8 shadow-sm md:p-12">
-              <div className="mb-8 text-center">
-                <div className="text-5xl font-bold text-syntax-blue">FREE</div>
-                <p className="mt-2 text-gray-600">Community-supported event</p>
-              </div>
-
-              {/* What's Included */}
-              <div className="mb-8">
-                <h3 className="mb-4 text-lg font-semibold text-gray-900">
-                  What&apos;s Included:
-                </h3>
-                <ul className="space-y-3">
-                  {includedItems.map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <RiCheckLine className="h-5 w-5 shrink-0 text-syntax-green" />
-                      <span className="text-gray-700">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Tito.io Widget */}
-              <TitoWidget eventId="sitwhm/2026" />
-
-              {/* Note */}
-              <p className="mt-6 text-center text-sm text-gray-500">
-                By registering, you agree to our{" "}
-                <a href="#" className="text-syntax-blue hover:underline">
-                  Code of Conduct
-                </a>
-              </p>
-            </div>
-          </FadeDiv>
-        </FadeContainer>
+    <section id="registration" className="relative overflow-hidden bg-syntax-blue py-24">
+      {/* Background glows */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -right-20 -top-20 h-80 w-80 rounded-full bg-syntax-cyan/10 blur-3xl" />
+        <div className="absolute -bottom-20 -left-20 h-80 w-80 rounded-full bg-white/5 blur-3xl" />
       </div>
+
+      <FadeContainer className="relative z-10 mx-auto max-w-5xl px-4 md:px-6">
+        <FadeDiv>
+          <div className="overflow-hidden rounded-2xl bg-white/10 shadow-2xl ring-1 ring-white/10 backdrop-blur-sm">
+            <div className="grid grid-cols-1 md:grid-cols-2">
+              {/* Left — Big heading */}
+              <div className="relative flex items-center px-8 py-12 md:px-12 md:py-16">
+                {/* Subtle pattern overlay */}
+                <div
+                  className="pointer-events-none absolute inset-0 opacity-[0.04]"
+                  style={{
+                    backgroundImage:
+                      "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
+                    backgroundSize: "24px 24px",
+                  }}
+                />
+                <div className="relative">
+                  <p className="text-sm font-medium uppercase tracking-widest text-blue-200/60">
+                    Registration
+                  </p>
+                  <h2 className="mt-4 text-3xl font-extrabold leading-tight text-white sm:text-4xl md:text-5xl">
+                    Join Us
+                    <br />
+                    <span className="text-syntax-cyan">for Free</span>
+                  </h2>
+                  <p className="mt-4 text-base text-blue-200/70">
+                    Limited to {siteConfig.event.capacity} attendees — register early!
+                  </p>
+                </div>
+              </div>
+
+              {/* Right — White card with content */}
+              <div className="flex flex-col justify-center rounded-2xl bg-white px-8 py-12 md:px-12 md:py-16">
+                {/* FREE badge */}
+                <div className="text-center">
+                  <div className="text-4xl font-extrabold text-syntax-blue">FREE</div>
+                  <p className="mt-1 text-sm text-gray-500">Community-supported event</p>
+                </div>
+
+                {/* Spots indicator */}
+                <div className="mt-6 flex items-center justify-center gap-2 rounded-lg bg-amber-50 px-4 py-3 ring-1 ring-amber-200/60">
+                  <RiGroupLine className="h-5 w-5 text-amber-600" />
+                  <span className="text-sm font-medium text-amber-800">
+                    Limited to {siteConfig.event.capacity} spots — secure yours now
+                  </span>
+                </div>
+
+                {/* What's Included */}
+                <div className="mt-6">
+                  <h3 className="mb-3 text-sm font-semibold text-gray-900">
+                    What&apos;s Included:
+                  </h3>
+                  <ul className="space-y-2.5">
+                    {includedItems.map((item) => (
+                      <li key={item} className="flex items-start gap-2.5">
+                        <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-syntax-green/10">
+                          <RiCheckLine className="h-3.5 w-3.5 text-syntax-green" />
+                        </div>
+                        <span className="text-sm text-gray-700">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Tito.io Widget */}
+                <div className="mt-6">
+                  <TitoWidget eventId="sitwhm/2026" />
+                </div>
+
+                {/* Note */}
+                <p className="mt-4 text-center text-xs text-gray-400">
+                  By registering, you agree to our{" "}
+                  <Link href="/code-of-conduct" className="text-syntax-blue hover:underline">
+                    Code of Conduct
+                  </Link>
+                </p>
+              </div>
+            </div>
+          </div>
+        </FadeDiv>
+      </FadeContainer>
     </section>
   )
 }

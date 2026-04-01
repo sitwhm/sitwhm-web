@@ -22,13 +22,13 @@ export function Organizers() {
             </FadeDiv>
           </div>
 
-          {/* Organizers Grid */}
-          <div className="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+          {/* Organizers - flexbox so last row centers naturally */}
+          <div className="mt-16 flex flex-wrap justify-center gap-8">
             {organizers.map((organizer, index) => (
-              <FadeDiv key={organizer.id} delay={0.05 * (index + 2)}>
-                <div className="group h-full rounded-lg border border-gray-200 bg-white p-8 text-center transition-all hover:shadow-md hover:-translate-y-0.5">
+              <FadeDiv key={organizer.id} delay={0.05 * (index + 2)} className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)]">
+                <div className="group h-full rounded-xl border border-gray-100 bg-white p-8 text-center shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5 hover:border-syntax-blue/20">
                   {/* Avatar */}
-                  <div className="mx-auto mb-4 h-24 w-24 overflow-hidden rounded-full border-2 border-gray-200">
+                  <div className="mx-auto mb-4 h-24 w-24 overflow-hidden rounded-full ring-2 ring-gray-100 transition-all group-hover:ring-syntax-blue/30">
                     <Image
                       src={organizer.photo}
                       alt={organizer.name}
@@ -48,7 +48,7 @@ export function Organizers() {
 
                   {/* Bio */}
                   {organizer.bio && (
-                    <p className="mb-4 text-sm leading-relaxed text-gray-500">
+                    <p className="mb-4 text-sm leading-relaxed text-gray-600">
                       {organizer.bio}
                     </p>
                   )}
@@ -59,7 +59,7 @@ export function Organizers() {
                       href={organizer.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center text-gray-400 transition-colors hover:text-syntax-blue"
+                      className="inline-flex cursor-pointer items-center justify-center text-gray-400 transition-colors hover:text-syntax-blue"
                       aria-label={`${organizer.name} on LinkedIn`}
                     >
                       <RiLinkedinBoxFill className="h-5 w-5" />

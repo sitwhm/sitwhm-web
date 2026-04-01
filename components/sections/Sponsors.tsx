@@ -40,9 +40,9 @@ export function Sponsors() {
                       href={sponsor.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block"
+                      className="block cursor-pointer"
                     >
-                      <div className="rounded-lg border border-gray-200 bg-white p-12 shadow-sm transition-all hover:scale-[1.02] hover:shadow-md">
+                      <div className="rounded-xl border border-gray-100 bg-white p-8 shadow-sm transition-all hover:border-syntax-blue/20 hover:shadow-md hover:-translate-y-0.5">
                         <div className="flex flex-col items-center gap-6 text-center">
                           <div className="flex h-32 items-center justify-center">
                             <div className="text-4xl font-bold text-syntax-blue">
@@ -78,9 +78,9 @@ export function Sponsors() {
                       href={sponsor.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block"
+                      className="block cursor-pointer"
                     >
-                      <div className="flex h-full items-center justify-center rounded-lg border border-gray-200 bg-white p-8 shadow-sm transition-all hover:scale-[1.02] hover:shadow-md">
+                      <div className="flex h-full items-center justify-center rounded-xl border border-gray-100 bg-white p-8 shadow-sm transition-all hover:border-syntax-blue/20 hover:shadow-md hover:-translate-y-0.5">
                         <div className="text-2xl font-semibold text-gray-700">
                           {sponsor.name}
                         </div>
@@ -107,9 +107,9 @@ export function Sponsors() {
                       href={sponsor.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block"
+                      className="block cursor-pointer"
                     >
-                      <div className="flex h-full items-center justify-center rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:scale-[1.02] hover:shadow-md">
+                      <div className="flex h-full items-center justify-center rounded-xl border border-gray-100 bg-white p-6 shadow-sm transition-all hover:border-syntax-blue/20 hover:shadow-md hover:-translate-y-0.5">
                         <div className="text-lg font-medium text-gray-600">
                           {sponsor.name}
                         </div>
@@ -123,7 +123,7 @@ export function Sponsors() {
 
           {/* Become a Sponsor CTA */}
           <FadeDiv delay={0.8} className="mt-16 text-center">
-            <div className="rounded-lg border border-gray-200 bg-gray-50 p-8">
+            <div className="rounded-xl border border-gray-100 bg-gray-50 p-8">
               <h3 className="mb-4 text-2xl font-semibold text-gray-900">
                 Interested in Sponsoring?
               </h3>
@@ -131,7 +131,7 @@ export function Sponsors() {
                 Support the SAP community and get your brand in front of{" "}
                 {150}+ attendees
               </p>
-              <a href="mailto:sponsors@sitwhm.com">
+              <a href="mailto:team@sitwhm.de">
                 <Button>
                   Become a Sponsor
                 </Button>

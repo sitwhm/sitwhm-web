@@ -11,5 +11,5 @@ export const featureFlags = {
    * - 'teaser': Minimal light "Save the Date" teaser
    * - 'mystery': Premium dark mode with countdown and reveal effects
    */
-  pageMode: 'mystery' as 'full' | 'teaser' | 'mystery',
+  pageMode: 'full' as 'full' | 'teaser' | 'mystery',
 } as const

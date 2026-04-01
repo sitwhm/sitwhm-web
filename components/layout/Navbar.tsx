@@ -8,11 +8,9 @@ import { useEffect, useState } from "react"
 const navLinks = [
   { href: "#about", label: "About" },
   { href: "#agenda", label: "Agenda" },
-  { href: "#registration", label: "Registration" },
-  { href: "#location", label: "Location" },
-  { href: "#sponsors", label: "Sponsors" },
   { href: "#speakers", label: "Speakers" },
-  { href: "#organizers", label: "Organizers" },
+  { href: "#location", label: "Location" },
+  { href: "#faq", label: "FAQ" },
 ]
 
 export function Navbar() {
@@ -23,32 +21,45 @@ export function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10)
     }
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  // Close mobile menu on resize to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) setIsMobileMenuOpen(false)
+    }
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
   }, [])
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white shadow-sm" : "bg-white/80 backdrop-blur-sm"
+      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-white/95 shadow-sm backdrop-blur-md"
+          : "bg-white/60 backdrop-blur-sm"
       }`}
     >
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 md:px-6">
-        <Link href="/" className="flex items-center gap-2">
+      <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3.5 md:px-6">
+        <Link href="/" className="flex cursor-pointer items-center gap-2">
           <div className="flex flex-col">
-            <span className="text-xs font-medium text-gray-600">SAP Inside Track</span>
-            <span className="bg-gradient-to-r from-syntax-blue to-syntax-cyan bg-clip-text text-lg font-bold text-transparent">
+            <span className="text-[10px] font-medium uppercase tracking-wider text-gray-400">
+              SAP Inside Track
+            </span>
+            <span className="bg-gradient-to-r from-syntax-blue to-syntax-cyan bg-clip-text text-lg font-bold leading-tight text-transparent">
               SITWHM 2026
             </span>
           </div>
         </Link>
 
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-7 md:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-gray-700 transition-colors hover:text-syntax-blue"
+              className="cursor-pointer text-sm font-medium text-gray-600 transition-colors hover:text-syntax-blue"
             >
               {link.label}
             </a>
@@ -57,14 +68,12 @@ export function Navbar() {
 
         <div className="hidden md:block">
           <a href="#registration">
-            <Button size="sm">
-              Register
-            </Button>
+            <Button size="sm">Save Your Spot</Button>
           </a>
         </div>
 
         <button
-          className="md:hidden"
+          className="cursor-pointer rounded-lg p-2 text-gray-600 transition-colors hover:bg-gray-100 md:hidden"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -76,27 +85,30 @@ export function Navbar() {
         </button>
       </nav>
 
-      {isMobileMenuOpen && (
-        <div className="border-t border-gray-200 bg-white md:hidden">
-          <div className="flex flex-col space-y-4 px-4 py-6">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-base font-medium text-gray-700 hover:text-syntax-blue"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {link.label}
-              </a>
-            ))}
+      {/* Mobile menu with slide animation */}
+      <div
+        className={`overflow-hidden border-t border-gray-100 bg-white/95 backdrop-blur-md transition-all duration-300 ease-in-out md:hidden ${
+          isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0 border-t-0"
+        }`}
+      >
+        <div className="flex flex-col space-y-1 px-4 py-4">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="cursor-pointer rounded-lg px-3 py-2.5 text-base font-medium text-gray-700 transition-colors hover:bg-gray-50 hover:text-syntax-blue"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              {link.label}
+            </a>
+          ))}
+          <div className="pt-2">
             <a href="#registration" onClick={() => setIsMobileMenuOpen(false)}>
-              <Button className="w-full">
-                Register
-              </Button>
+              <Button className="w-full">Save Your Free Spot</Button>
             </a>
           </div>
         </div>
-      )}
+      </div>
     </header>
   )
 }

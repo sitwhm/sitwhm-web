@@ -142,6 +142,7 @@ export function NotifyMeRefined() {
                         href="/privacy"
                         className="border-b border-white/40 text-white transition-colors hover:border-white"
                         target="_blank"
+                        rel="noopener noreferrer"
                       >
                         Privacy Policy
                       </a>

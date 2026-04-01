@@ -56,7 +56,7 @@ export function AgendaCard({ session }: { session: Session }) {
 
   return (
     <div
-      className="group flex-1 rounded-2xl border border-gray-100 bg-white p-7 shadow-sm transition-all duration-200 hover:border-gray-200 hover:shadow-lg cursor-pointer"
+      className="group flex-1 rounded-xl border border-gray-100 bg-white p-8 shadow-sm transition-all duration-200 hover:border-syntax-blue/20 hover:shadow-md hover:-translate-y-0.5 cursor-pointer"
       onClick={() => setExpanded((v) => !v)}
     >
       {/* Title */}
@@ -68,7 +68,7 @@ export function AgendaCard({ session }: { session: Session }) {
       <div className="mt-3 relative">
         <p
           className={[
-            "text-base leading-relaxed text-gray-500 transition-all duration-300",
+            "text-base leading-relaxed text-gray-600 transition-all duration-300",
             expanded ? "" : "line-clamp-3",
           ].join(" ")}
         >
