@@ -35,7 +35,7 @@ export function Registration() {
         <FadeDiv>
           <div className="overflow-hidden rounded-2xl bg-white/10 shadow-2xl ring-1 ring-white/10 backdrop-blur-sm">
             <div className="grid grid-cols-1 md:grid-cols-2">
-              {/* Left — Big heading */}
+              {/* Left - Big heading */}
               <div className="relative flex items-center px-8 py-12 md:px-12 md:py-16">
                 {/* Subtle pattern overlay */}
                 <div
@@ -56,12 +56,12 @@ export function Registration() {
                     <span className="text-syntax-cyan">for Free</span>
                   </h2>
                   <p className="mt-4 text-sm text-white/60">
-                    Limited to {siteConfig.event.capacity} attendees — register early!
+                    Limited to {siteConfig.event.capacity} attendees - register early!
                   </p>
                 </div>
               </div>
 
-              {/* Right — White card with content */}
+              {/* Right - White card with content */}
               <div className="flex flex-col justify-center rounded-2xl bg-white px-8 py-12 md:px-12 md:py-16">
                 {/* FREE badge */}
                 <div className="text-center">
@@ -73,7 +73,7 @@ export function Registration() {
                 <div className="mt-6 flex items-center justify-center gap-2 rounded-lg bg-amber-50 px-4 py-3 ring-1 ring-amber-200/60">
                   <RiGroupLine className="h-5 w-5 text-amber-600" />
                   <span className="text-sm font-medium text-amber-800">
-                    Limited to {siteConfig.event.capacity} spots — secure yours now
+                    Limited to {siteConfig.event.capacity} spots - secure yours now
                   </span>
                 </div>
 
@@ -94,7 +94,7 @@ export function Registration() {
                   </ul>
                 </div>
 
-                {/* Tito Integration — switch between Option A and Option B */}
+                {/* Tito Integration - switch between Option A and Option B */}
                 <div className="mt-6">
                   {featureFlags.titoMode === "a" ? (
                     <TitoWidgetInline

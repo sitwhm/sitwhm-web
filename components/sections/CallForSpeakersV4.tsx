@@ -31,7 +31,7 @@ export function CallForSpeakersV4() {
           <FadeDiv delay={0.1}>
             <p className="mx-auto mt-5 max-w-lg text-lg text-gray-500">
               The best talks come from real experience. If you&apos;ve built it,
-              fixed it, or learned from it — we&apos;d love you to share.
+              fixed it, or learned from it - we&apos;d love you to share.
             </p>
           </FadeDiv>
         </div>
@@ -49,7 +49,7 @@ export function CallForSpeakersV4() {
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-gray-500">
                 Technical deep-dives, project war stories, career lessons,
-                demos, architecture decisions — if it matters to you,
+                demos, architecture decisions - if it matters to you,
                 it matters to us.
               </p>
             </div>

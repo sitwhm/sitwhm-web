@@ -32,7 +32,7 @@ Typography:
 Layout Structure:
 1. Fixed navbar (black, white border bottom, minimal)
 2. Hero section:
-   - "Save the Date — 19th September" (one line, uppercase, small)
+   - "Save the Date - 19th September" (one line, uppercase, small)
    - "SAP Inside Track Weinheim" (bold text, 60px - main hero, one line)
    - "#sitWHM" (medium text, 30px, 60% opacity - hashtag)
    - "2026" (light subtitle, 40% opacity)
@@ -435,7 +435,7 @@ When describing the design, use these terms:
 
 
 
-       Save the Date — 19th September
+       Save the Date - 19th September
 
 
        SAP Inside Track Weinheim

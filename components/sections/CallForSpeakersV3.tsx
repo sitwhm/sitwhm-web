@@ -1,5 +1,5 @@
 /**
- * CONCEPT 3: "The Warm Card" — Registration color scheme
+ * CONCEPT 3: "The Warm Card" - Registration color scheme
  *
  * Full syntax-blue background (matching "Join Us for Free"),
  * with cyan/white glows. Split card: left side stays blue with
@@ -13,7 +13,7 @@ import { RiArrowRightLine } from "@remixicon/react"
 export function CallForSpeakersV3() {
   return (
     <section id="speakers-call" className="relative overflow-hidden bg-syntax-blue py-24">
-      {/* Background glows — matching Registration */}
+      {/* Background glows - matching Registration */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -right-20 -top-20 h-80 w-80 rounded-full bg-syntax-cyan/10 blur-3xl" />
         <div className="absolute -bottom-20 -left-20 h-80 w-80 rounded-full bg-white/5 blur-3xl" />
@@ -23,7 +23,7 @@ export function CallForSpeakersV3() {
         <FadeDiv>
           <div className="overflow-hidden rounded-2xl bg-white/10 shadow-2xl ring-1 ring-white/10 backdrop-blur-sm">
             <div className="grid grid-cols-1 md:grid-cols-2">
-              {/* Left — Big heading */}
+              {/* Left - Big heading */}
               <div className="relative flex items-center px-8 py-12 md:px-12 md:py-16">
                 {/* Subtle pattern overlay */}
                 <div
@@ -48,13 +48,13 @@ export function CallForSpeakersV3() {
                 </div>
               </div>
 
-              {/* Right — White card with copy + CTA */}
+              {/* Right - White card with copy + CTA */}
               <div className="flex flex-col justify-center rounded-2xl bg-white px-8 py-12 md:px-12 md:py-16">
                 <p className="text-lg leading-relaxed text-gray-600">
                   Whether it&apos;s a deep-dive, a success story, or a lesson
-                  from a project that didn&apos;t go as planned — if you&apos;re
+                  from a project that didn&apos;t go as planned - if you&apos;re
                   passionate about it, we want to hear it. First-timers
-                  especially welcome — pick 20 or 40 minutes and go for it.
+                  especially welcome - pick 20 or 40 minutes and go for it.
                 </p>
 
                 <div className="mt-8">

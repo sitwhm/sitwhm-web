@@ -24,7 +24,7 @@ export function TitoPopup({ children, eventId: _eventId, testMode = false }: Tit
       }
 
     window.tito("on:registration:complete", (_data: unknown) => {
-      // Registration completed — can extend with toast/analytics here
+      // Registration completed - can extend with toast/analytics here
     })
   }, [])
 

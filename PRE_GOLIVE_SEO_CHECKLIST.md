@@ -29,7 +29,7 @@ Diese Zeilen entfernen:
 
 ```yaml
   variables:
-    # TODO GOLIVE: Remove this variable — disables the password gate automatically on production (GitHub)
+    # TODO GOLIVE: Remove this variable - disables the password gate automatically on production (GitHub)
     NEXT_PUBLIC_PREVIEW_PASSWORD_HASH: "ebc244c879199d8d0e4e958e9838c1bf6dd2ede60b5e4a05771116919bfbff42"
 ```
 
@@ -44,7 +44,7 @@ Diese Zeilen entfernen:
 Diese Zeile entfernen (inkl. Kommentar):
 
 ```tsx
-{/* TODO GOLIVE: Remove this meta tag — staging-only, blocks all search indexing */}
+{/* TODO GOLIVE: Remove this meta tag - staging-only, blocks all search indexing */}
 <meta name="robots" content="noindex, nofollow" />
 ```
 
@@ -55,7 +55,7 @@ Diese Zeile entfernen (inkl. Kommentar):
 - [ ] Google Search Console: Property für `sitwhm.de` anlegen und verifizieren
 - [ ] Sitemap bei Google einreichen: `https://sitwhm.de/sitemap.xml`
 - [ ] Bing Webmaster Tools: Property anlegen + Sitemap einreichen
-- [ ] Open Graph Bild (`/og-image.jpg`) prüfen — tatsächlich vorhanden?
+- [ ] Open Graph Bild (`/og-image.jpg`) prüfen - tatsächlich vorhanden?
 - [ ] Lighthouse SEO Score checken (Ziel: 100)
 - [ ] Core Web Vitals in Search Console beobachten (erste Daten nach ~4 Wochen)
 

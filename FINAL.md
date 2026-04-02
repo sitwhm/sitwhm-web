@@ -9,7 +9,7 @@ Your **SAP Inside Track Weinheim** website is complete!
   #sitWHM          Notify Me
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
- Save the Date — 19th September 2026
+ Save the Date - 19th September 2026
 
 
     SAP Inside Track Weinheim
@@ -32,7 +32,7 @@ Your **SAP Inside Track Weinheim** website is complete!
 
 ## 🎯 Design Hierarchy
 
-1. **Save the Date — 19th September 2026** (small, uppercase, one line)
+1. **Save the Date - 19th September 2026** (small, uppercase, one line)
 2. **SAP Inside Track Weinheim** (60px, bold, main hero, ONE line)
 3. **#sitWHM** (30px, medium, hashtag for social)
 4. **243 Days to Go** (static calculation)

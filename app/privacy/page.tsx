@@ -144,7 +144,7 @@ export default function Privacy() {
               </li>
               <li className="flex gap-2">
                 <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-gray-300" />
-                Technical data (IP address, browser) — processed by Google
+                Technical data (IP address, browser) - processed by Google
               </li>
             </ul>
             <p className="mt-3 text-sm leading-relaxed text-gray-600">

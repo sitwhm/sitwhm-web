@@ -1,4 +1,4 @@
-# CLAUDE.md — sitwhm-solar
+# CLAUDE.md - sitwhm-solar
 
 ## HARD GUARDRAILS
 

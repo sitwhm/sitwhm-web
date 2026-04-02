@@ -18,7 +18,7 @@ const steps = [
     icon: RiLightbulbLine,
     number: "1",
     title: "Pick a topic",
-    desc: "SAP, tech, career — anything you're passionate about",
+    desc: "SAP, tech, career - anything you're passionate about",
   },
   {
     icon: RiSendPlaneLine,
@@ -30,7 +30,7 @@ const steps = [
     icon: RiPresentationLine,
     number: "3",
     title: "Take the stage",
-    desc: "15, 30, or 45 minutes — you choose the format",
+    desc: "15, 30, or 45 minutes - you choose the format",
   },
 ]
 

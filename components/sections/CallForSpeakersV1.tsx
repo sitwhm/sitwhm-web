@@ -49,7 +49,7 @@ export function CallForSpeakersV1() {
         <FadeDiv delay={0.2}>
           <p className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-gray-400">
             Got a story, a lesson, or an idea worth sharing? Whether you&apos;re a
-            seasoned speaker or stepping up for the first time — this stage is yours.
+            seasoned speaker or stepping up for the first time - this stage is yours.
           </p>
         </FadeDiv>
 
@@ -71,7 +71,7 @@ export function CallForSpeakersV1() {
         {/* First-timer note */}
         <FadeDiv delay={0.35}>
           <p className="mt-8 text-sm text-gray-500">
-            First time speaking? You&apos;ll be among friends. Pick 15, 30, or 45 minutes — whatever feels right.
+            First time speaking? You&apos;ll be among friends. Pick 15, 30, or 45 minutes - whatever feels right.
           </p>
         </FadeDiv>
 
