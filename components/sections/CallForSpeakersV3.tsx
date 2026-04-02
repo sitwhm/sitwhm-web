@@ -59,7 +59,7 @@ export function CallForSpeakersV3() {
 
                 <div className="mt-8">
                   <a
-                    href="https://sessionize.com/testconference5847/"
+                    href="https://sessionize.com/sitwhm2026/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

@@ -74,7 +74,7 @@ export function CallForSpeakersV4() {
         {/* CTA */}
         <FadeDiv delay={0.3} className="mt-12 text-center">
           <a
-            href="https://sessionize.com/testconference5847/"
+            href="https://sessionize.com/sitwhm2026/"
             target="_blank"
             rel="noopener noreferrer"
           >
