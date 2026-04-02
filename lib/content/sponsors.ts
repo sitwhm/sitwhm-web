@@ -7,7 +7,6 @@ export const sponsors: Sponsor[] = [
     tier: "platinum",
     logo: "/logos/syntax.png",
     website: "https://www.syntax.com",
-    description: "Leading provider of SAP managed services and cloud solutions.",
   },
   // Placeholders for other sponsors
   {
