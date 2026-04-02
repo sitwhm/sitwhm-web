@@ -81,7 +81,7 @@ export function Location() {
             <FadeDiv delay={0.3}>
               <div className="h-full min-h-[400px] overflow-hidden rounded-xl border border-gray-100 shadow-sm">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2595.123456789!2d8.66!3d49.54!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDnCsDMyJzI0LjAiTiA4wrAzOSczNi4wIkU!5e0!3m2!1sen!2sde!4v1234567890"
+                  src="https://maps.google.com/maps?q=H%C3%B6hnerweg+2-4,+69469+Weinheim&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
