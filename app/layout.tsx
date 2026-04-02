@@ -135,7 +135,7 @@ export default function RootLayout({
                   "name": siteConfig.event.venue,
                   "address": {
                     "@type": "PostalAddress",
-                    "streetAddress": "Syntax Systems GmbH & Co. KG",
+                    "streetAddress": "Höhnerweg 2-4",
                     "addressLocality": "Weinheim an der Bergstrasse",
                     "postalCode": "69469",
                     "addressRegion": "Baden-Wuerttemberg",

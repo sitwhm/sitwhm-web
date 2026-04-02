@@ -7,7 +7,7 @@ export function Location() {
     {
       icon: RiMapPinLine,
       title: "Address",
-      description: "Syntax Auditorium, Weinheim, Germany",
+      description: "Höhnerweg 2-4, 69469 Weinheim, Germany",
     },
     {
       icon: RiSubwayLine,
@@ -65,7 +65,7 @@ export function Location() {
 
                 <div className="mt-8">
                   <a
-                    href="https://www.google.com/maps/search/Syntax+Weinheim"
+                    href="https://www.google.com/maps/search/H%C3%B6hnerweg+2-4+69469+Weinheim"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-syntax-blue hover:underline"
