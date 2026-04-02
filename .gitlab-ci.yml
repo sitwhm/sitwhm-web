@@ -5,6 +5,9 @@ stages:
 
 pages:
   stage: build
+  variables:
+    # TODO GOLIVE: Remove this variable — disables the password gate automatically on production (GitHub)
+    NEXT_PUBLIC_PREVIEW_PASSWORD_HASH: "ebc244c879199d8d0e4e958e9838c1bf6dd2ede60b5e4a05771116919bfbff42"
   script:
     - npm ci
     - npm run build

@@ -10,6 +10,7 @@ import { FooterTeaser } from "@/components/layout/FooterTeaser"
 import { NavbarRefined } from "@/components/layout/NavbarRefined"
 import { FooterRefined } from "@/components/layout/FooterRefined"
 import { FloatingCTA } from "@/components/layout/FloatingCTA"
+import { PasswordGate } from "@/components/PasswordGate"
 
 const isTeaserMode = featureFlags.pageMode === 'teaser' || featureFlags.pageMode === 'mystery'
 
@@ -113,6 +114,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        {/* TODO GOLIVE: Remove this meta tag — staging-only, blocks all search indexing */}
+        <meta name="robots" content="noindex, nofollow" />
         {featureFlags.pageMode === 'full' && (
           <>
           <script
@@ -309,10 +312,12 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body className={getBodyClasses()}>
-        {getNavbar()}
-        {children}
-        {getFooter()}
-        {featureFlags.pageMode === 'full' && <FloatingCTA />}
+        <PasswordGate>
+          {getNavbar()}
+          {children}
+          {getFooter()}
+          {featureFlags.pageMode === 'full' && <FloatingCTA />}
+        </PasswordGate>
       </body>
     </html>
   )
