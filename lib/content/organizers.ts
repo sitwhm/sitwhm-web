@@ -16,13 +16,6 @@ export const organizers: Person[] = [
     linkedin: "https://linkedin.com/in/max-streifeneder-72a0955b",
   },
   {
-    id: "org-matthias",
-    name: "Matthias Steiner",
-    title: "VP of Software Engineering",
-    photo: "/organizers/matthias-steiner.jpeg",
-    linkedin: "https://linkedin.com/in/matthiassteiner",
-  },
-  {
     id: "org-dominik",
     name: "Dr. Dominik Schaefer",
     title: "Director Global Innovation Program",
@@ -35,5 +28,12 @@ export const organizers: Person[] = [
     title: "Senior Product Manager",
     photo: "/organizers/julian-breitkopf.jpeg",
     linkedin: "https://linkedin.com/in/julian-breitkopf-275871184",
+  },
+  {
+    id: "org-matthias",
+    name: "Matthias Steiner",
+    title: "VP of Software Engineering",
+    photo: "/organizers/matthias-steiner.jpeg",
+    linkedin: "https://linkedin.com/in/matthiassteiner",
   },
 ]
