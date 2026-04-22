@@ -1,7 +1,7 @@
 import { FadeContainer, FadeDiv } from "@/components/Fade"
 import { Button } from "@/components/ui/Button"
 import { siteConfig } from "@/app/siteConfig"
-import { RiCodeSSlashLine, RiGlassesLine, RiCalendarLine, RiTimeLine, RiMapPinLine, RiGroupLine, RiMacbookLine } from "@remixicon/react"
+import { RiCodeSSlashLine, RiGlassesLine, RiCalendarLine, RiTimeLine, RiMapPinLine, RiGroupLine, RiMacbookLine, RiBookOpenLine, RiUserLine } from "@remixicon/react"
 
 export function FridayProgram() {
   return (
@@ -36,7 +36,7 @@ export function FridayProgram() {
                       SAP CodeJam
                     </h3>
                     <p className="mt-1 text-sm text-gray-400">
-                      Hands-on workshop led by SAP experts
+                      {siteConfig.codejam.topic}
                     </p>
                   </div>
                 </div>
@@ -56,38 +56,57 @@ export function FridayProgram() {
                     <span>Syntax Auditorium, Weinheim</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm text-gray-600">
+                    <RiUserLine className="h-4 w-4 text-gray-400" />
+                    <span>Instructor: {siteConfig.codejam.instructor}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-gray-600">
                     <RiGroupLine className="h-4 w-4 text-gray-400" />
-                    <span>Limited to ~25 participants</span>
+                    <span>Limited to 50 participants</span>
                   </div>
                 </div>
 
                 {/* Description */}
                 <p className="mt-6 text-sm leading-relaxed text-gray-600">
-                  A CodeJam is a free, full-day hands-on workshop where you work through
-                  real-world exercises on a specific SAP technology. An SAP expert guides
-                  you through the material, answers questions, and helps you troubleshoot -
-                  right there in the room. It's the best way to get practical experience
-                  with a technology you've been curious about.
+                  You'll explore the different concepts that make CAP such a compelling
+                  framework for today's world of AI, where concision, correctness and the
+                  imperative to write less code is at the forefront of everyone's mind.
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-gray-600">
+                  No prior experience required. Suitable for developers and non-developers
+                  alike - just bring curiosity and a desire to learn.
                 </p>
 
                 {/* Prerequisites note */}
-                <div className="mt-4 rounded-lg bg-gray-50 p-4">
-                  <p className="flex items-start gap-2 text-xs text-gray-400">
+                <div className="mt-4 rounded-lg bg-amber-50 p-4">
+                  <p className="flex items-start gap-2 text-xs text-amber-900">
                     <RiMacbookLine className="mt-0.5 h-3.5 w-3.5 shrink-0" />
-                    Bring your own laptop. Prerequisites will be shared before the event.
+                    <span>
+                      <strong>Essential prerequisites must be completed before arriving.</strong>
+                      {" "}See the event info page for details.
+                    </span>
                   </p>
                 </div>
 
-                {/* CTA */}
-                <div className="mt-auto pt-6">
+                {/* CTAs */}
+                <div className="mt-auto flex flex-col gap-3 pt-6 sm:flex-row">
                   <a
                     href={siteConfig.codejam.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block"
+                    className="flex-1"
                   >
                     <Button size="md" className="w-full">
-                      Register for CodeJam
+                      Register
+                    </Button>
+                  </a>
+                  <a
+                    href={siteConfig.codejam.infoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1"
+                  >
+                    <Button size="md" variant="secondary" className="w-full">
+                      Event Info
                     </Button>
                   </a>
                 </div>

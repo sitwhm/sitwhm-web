@@ -21,6 +21,9 @@ export const siteConfig = {
   codejam: {
     url: "https://ti.to/sitwhm/codejam-whm",
     titoEventId: "sitwhm/codejam-whm",
+    infoUrl: "https://community.sap.com/t5/sap-codejam/hands-on-with-cap-cds/ec-p/14380407",
+    topic: "Hands-on with CAP CDS",
+    instructor: "DJ Adams (SAP Developer Advocate)",
   },
   social: {
     twitter: "@sitwhm",
