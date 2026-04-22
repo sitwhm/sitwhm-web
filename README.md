@@ -162,17 +162,24 @@ See `LEGAL_COMPLIANCE_SUMMARY.md` for details.
 
 ## 🚀 Deployment
 
-**Recommended:** Vercel (zero-config)
+**Production:** GitHub Pages at https://sitwhm.de (custom domain, HTTPS enforced)
 
-```bash
-npm install -g vercel
-vercel login
-vercel deploy --prod
-```
+- Source: GitHub Actions workflow (`.github/workflows/nextjs.yml`)
+- Trigger: push to `main` on `sitwhm/sitwhm-web`
+- Build: `npm ci && next build` → static export in `out/`
+- Custom domain set via Settings → Pages (also pinned by `public/CNAME`)
 
-**Alternatives:**
-- Netlify
-- GitLab Pages (`.gitlab-ci.yml` included)
+**Staging:** GitLab Pages (`.gitlab-ci.yml` included)
+
+### HTTPS / TLS certificate
+
+GitHub Pages issues and **auto-renews** the certificate via Let's Encrypt (~30 days before the 90-day expiry). No manual action needed as long as:
+
+- DNS A records for `sitwhm.de` stay on GitHub Pages IPs (`185.199.108-111.153`)
+- Domain remains "verified" in repo Settings → Pages
+- "Enforce HTTPS" stays enabled
+
+If auto-renew ever fails: remove and re-add the custom domain in Settings → Pages to trigger a fresh cert request. Let's Encrypt certs cannot be extended beyond 90 days, and GitHub Pages does not support uploading custom certificates.
 
 ## 📝 Quick Commands
 
