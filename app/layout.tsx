@@ -114,8 +114,6 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        {/* TODO GOLIVE: Remove this meta tag - staging-only, blocks all search indexing */}
-        <meta name="robots" content="noindex, nofollow" />
         {featureFlags.pageMode === 'full' && (
           <>
           <script

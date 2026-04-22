@@ -1,12 +1,4 @@
-# PRE-LAUNCH: Indexing blocked intentionally (staging/preview only)
-# TODO GOLIVE: Replace this entire file with the production version below
-#
-# --- PRODUCTION robots.txt (restore at golive) ---
-# User-agent: *
-# Allow: /
-#
-# Sitemap: https://sitwhm.de/sitemap.xml
-# ---
-
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://sitwhm.de/sitemap.xml
