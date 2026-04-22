@@ -139,16 +139,24 @@ export function FridayProgram() {
                 {/* Note */}
                 <div className="mt-4 rounded-lg bg-gray-50 p-4">
                   <p className="text-xs text-gray-400">
-                    Food and drinks at your own expense. We'll reserve seats once we
-                    know how many people are interested.
+                    Included when you register for the main event. Food and drinks at
+                    your own expense. We'll reserve seats once we know how many people
+                    are interested.
                   </p>
                 </div>
 
                 {/* CTA */}
                 <div className="mt-auto pt-6">
-                  <Button size="md" variant="secondary" className="w-full opacity-60 cursor-not-allowed" disabled>
-                    Details Coming Soon
-                  </Button>
+                  <a
+                    href={siteConfig.registration.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <Button size="md" variant="secondary" className="w-full">
+                      Register for Main Event
+                    </Button>
+                  </a>
                 </div>
               </div>
             </FadeDiv>
