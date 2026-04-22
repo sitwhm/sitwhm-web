@@ -31,10 +31,6 @@ vercel deploy --prod
 
 ```
 DESIGN_PROMPT.md              ← How to recreate this design
-QUICK_START.md                ← 20-minute launch guide
-GOOGLE_FORMS_SETUP.md         ← Email notification setup
-LEGAL_COMPLIANCE_SUMMARY.md   ← GDPR compliance guide
-README_FINAL.md               ← Implementation details
 ```
 
 ## 🎯 Three Modes Available
@@ -59,12 +55,7 @@ export const featureFlags = {
    - `app/imprint/page.tsx`
    - `app/privacy/page.tsx`
 
-2. **Set up Google Form**:
-   - Create form at forms.google.com
-   - Update URLs in `components/sections/NotifyMeRefined.tsx`
-   - See `GOOGLE_FORMS_SETUP.md` for details
-
-3. **Test everything**:
+2. **Test everything**:
    - Form submission works
    - Countdown shows correctly
    - Mobile responsive
@@ -111,20 +102,8 @@ Sept 19, 2026 · Weinheim
 **Design & Recreation:**
 - `DESIGN_PROMPT.md` - Complete design specification & prompting guide
 
-**Setup & Launch:**
-- `QUICK_START.md` - Launch in 20 minutes
-- `GOOGLE_FORMS_SETUP.md` - Email form setup
-- `YOUR_INFO_TEMPLATE.md` - Fill-in template
-
 **Legal Compliance:**
-- `LEGAL_COMPLIANCE_SUMMARY.md` - GDPR compliance overview
-- `app/imprint/page.tsx` - German Impressum
-- `app/privacy/page.tsx` - Privacy policy
-
-**Technical Details:**
-- `README_FINAL.md` - Implementation summary
-- `MODE_SELECTOR.md` - Comparison of all modes
-- `MYSTERY_MODE.md` - Dark mode guide
+- `app/privacy/page.tsx` - Privacy policy (includes Impressum)
 
 ## 🔧 Tech Stack
 
@@ -157,8 +136,6 @@ Sept 19, 2026 · Weinheim
 - Complete Impressum
 - Contact information
 - Liability disclaimers
-
-See `LEGAL_COMPLIANCE_SUMMARY.md` for details.
 
 ## 🚀 Deployment
 
@@ -232,9 +209,7 @@ Private event website - All rights reserved.
 
 **Questions?**
 - Design: See `DESIGN_PROMPT.md`
-- Setup: See `QUICK_START.md`
-- Legal: See `LEGAL_COMPLIANCE_SUMMARY.md`
-- Forms: See `GOOGLE_FORMS_SETUP.md`
+- Legal: See `app/privacy/page.tsx`
 
 ---
 
