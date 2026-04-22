@@ -18,6 +18,10 @@ export const siteConfig = {
     releases: [] as string[],
     discountCode: undefined as string | undefined,
   },
+  codejam: {
+    url: "https://ti.to/sitwhm/codejam-whm",
+    titoEventId: "sitwhm/codejam-whm",
+  },
   social: {
     twitter: "@sitwhm",
     linkedin: "company/syntax",

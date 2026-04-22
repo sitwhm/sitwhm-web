@@ -1,5 +1,6 @@
 import { FadeContainer, FadeDiv } from "@/components/Fade"
 import { Button } from "@/components/ui/Button"
+import { siteConfig } from "@/app/siteConfig"
 import { RiCodeSSlashLine, RiGlassesLine, RiCalendarLine, RiTimeLine, RiMapPinLine, RiGroupLine, RiMacbookLine } from "@remixicon/react"
 
 export function FridayProgram() {
@@ -79,9 +80,16 @@ export function FridayProgram() {
 
                 {/* CTA */}
                 <div className="mt-auto pt-6">
-                  <Button size="md" className="w-full opacity-60 cursor-not-allowed" disabled>
-                    Registration Opens Soon
-                  </Button>
+                  <a
+                    href={siteConfig.codejam.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <Button size="md" className="w-full">
+                      Register for CodeJam
+                    </Button>
+                  </a>
                 </div>
               </div>
             </FadeDiv>
