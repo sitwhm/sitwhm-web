@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   reactStrictMode: true,
+  experimental: {
+    inlineCss: true,
+  },
 };
 
 export default nextConfig;

@@ -306,6 +306,9 @@ export default function RootLayout({
         <meta name="ICBM" content="49.5576133, 8.6648559" />
         <link rel="dns-prefetch" href="https://js.tito.io" />
         <link rel="dns-prefetch" href="https://ti.to" />
+        <link rel="preconnect" href="https://maps.google.com" crossOrigin="" />
+        <link rel="preconnect" href="https://maps.googleapis.com" crossOrigin="" />
+        <link rel="preconnect" href="https://maps.gstatic.com" crossOrigin="" />
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body className={getBodyClasses()}>

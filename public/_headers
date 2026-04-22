@@ -2,3 +2,41 @@
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
   Referrer-Policy: strict-origin-when-cross-origin
+
+# Hash-basierte Next-Assets -> sehr lange TTL (immutable)
+# Wirkt bei Cloudflare Pages / Netlify. Auf GitHub Pages wird diese Datei ignoriert;
+# dort muss die Cache-Policy via Cloudflare-Proxy (Page Rule / Cache Rule) gesetzt werden.
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/_next/static/media/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Fonts (aus geist/font werden in /_next/static/media ausgeliefert, oben bereits abgedeckt)
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+
+# Bilder / statische Assets im public/-Root (nicht hash-basiert -> kürzere TTL)
+/og-image.jpg
+  Cache-Control: public, max-age=604800
+
+/icon.png
+  Cache-Control: public, max-age=604800
+
+/logos/*
+  Cache-Control: public, max-age=604800
+
+/organizers/*
+  Cache-Control: public, max-age=604800
+
+/people/*
+  Cache-Control: public, max-age=604800
+
+/manifest.json
+  Cache-Control: public, max-age=3600
+
+/robots.txt
+  Cache-Control: public, max-age=86400
+
+/sitemap.xml
+  Cache-Control: public, max-age=86400
