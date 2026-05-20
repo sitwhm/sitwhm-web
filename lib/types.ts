@@ -28,6 +28,7 @@ export interface Person {
   id: string
   name: string
   title: string
+  company?: string
   bio?: string
   photo: string
   linkedin?: string
