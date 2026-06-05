@@ -65,11 +65,13 @@ export function Speakers() {
                   <h3 className="mb-2 text-xl font-semibold tracking-tight text-gray-900">
                     {speaker.name}
                   </h3>
-                  <p className="text-sm text-gray-600">{speaker.title}</p>
+                  <p className="text-sm leading-snug text-gray-700">{speaker.title}</p>
                   {speaker.company && (
-                    <p className="mb-3 text-sm font-medium text-gray-500">{speaker.company}</p>
+                    <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-gray-400">
+                      {speaker.company}
+                    </p>
                   )}
-                  {!speaker.company && <div className="mb-3" />}
+                  <div className="mb-3" />
                   {speaker.bio && (
                     <p className="mb-4 text-sm leading-relaxed text-gray-600">
                       {speaker.bio}
@@ -145,9 +147,11 @@ export function Speakers() {
             <h3 className="text-2xl font-bold tracking-tight text-gray-900">
               {active.name}
             </h3>
-            <p className="mt-1 text-sm font-medium text-syntax-blue">{active.title}</p>
+            <p className="mt-2 text-sm text-gray-700">{active.title}</p>
             {active.company && (
-              <p className="text-sm text-gray-500">{active.company}</p>
+              <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-syntax-blue">
+                {active.company}
+              </p>
             )}
             {active.bio && (
               <p className="mt-4 text-sm leading-relaxed text-gray-600">
