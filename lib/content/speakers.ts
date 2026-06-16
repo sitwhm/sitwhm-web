@@ -37,10 +37,10 @@ export const speakers: Person[] = [
   },
   {
     id: "speaker-6",
-    name: "Speaker 6 - To Be Announced",
-    title: "",
-    bio: "Speaker details will be announced soon. Stay tuned!",
-    photo: "/people/placeholder.svg",
+    name: "Cedric Heisel",
+    title: "SAP Cloud Solution Architect",
+    company: "CIT Focus",
+    photo: "/people/cedric-heisel.png",
   },
   {
     id: "speaker-7",
