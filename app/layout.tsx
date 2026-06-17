@@ -10,6 +10,7 @@ import { FooterTeaser } from "@/components/layout/FooterTeaser"
 import { NavbarRefined } from "@/components/layout/NavbarRefined"
 import { FooterRefined } from "@/components/layout/FooterRefined"
 import { FloatingCTA } from "@/components/layout/FloatingCTA"
+import { speakers } from "@/lib/content/speakers"
 
 const isTeaserMode = featureFlags.pageMode === 'teaser' || featureFlags.pageMode === 'mystery'
 
@@ -166,7 +167,18 @@ export default function RootLayout({
                 "inLanguage": "en",
                 "isAccessibleForFree": true,
                 "maximumAttendeeCapacity": siteConfig.event.capacity,
-                "typicalAgeRange": "18-"
+                "typicalAgeRange": "18-",
+                "performer": speakers
+                  .filter((s) => !s.photo.includes("placeholder"))
+                  .map((s) => ({
+                    "@type": "Person",
+                    "name": s.name,
+                    "jobTitle": s.title,
+                    ...(s.company && {
+                      "affiliation": { "@type": "Organization", "name": s.company },
+                    }),
+                    "image": `${siteConfig.url}${s.photo}`,
+                  })),
               })
             }}
           />
