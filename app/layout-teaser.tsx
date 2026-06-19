@@ -25,12 +25,6 @@ export const metadata: Metadata = {
     description: `Save the date for ${siteConfig.event.date}. ${siteConfig.description}`,
     siteName: siteConfig.shortName,
   },
-  twitter: {
-    card: "summary_large_image",
-    title: `Save the Date - ${siteConfig.name}`,
-    description: `Save the date for ${siteConfig.event.date}. ${siteConfig.description}`,
-    creator: siteConfig.social.twitter,
-  },
 }
 
 export default function TeaserLayout({

@@ -70,15 +70,6 @@ export const metadata: Metadata = {
       },
     ],
   },
-  twitter: {
-    card: "summary_large_image",
-    title: isTeaserMode ? `Save the Date - ${siteConfig.name}` : siteConfig.name,
-    description: isTeaserMode
-      ? `Save the date for ${siteConfig.event.date}. ${siteConfig.description}`
-      : siteConfig.description,
-    creator: siteConfig.social.twitter,
-    images: [`${siteConfig.url}/og-image.jpg`],
-  },
 }
 
 // Choose navbar based on mode
@@ -150,8 +141,7 @@ export default function RootLayout({
                   "name": "SAP Inside Track Weinheim",
                   "url": siteConfig.url,
                   "sameAs": [
-                    "https://twitter.com/sitwhm",
-                    "https://github.com/maxstreifeneder/sitwhm"
+                    "https://github.com/sitwhm/sitwhm-web"
                   ]
                 },
                 "offers": {
@@ -205,8 +195,7 @@ export default function RootLayout({
                 "url": siteConfig.url,
                 "logo": `${siteConfig.url}/icon.png`,
                 "sameAs": [
-                  "https://twitter.com/sitwhm",
-                  "https://github.com/maxstreifeneder/sitwhm"
+                  "https://github.com/sitwhm/sitwhm-web"
                 ],
                 "contactPoint": {
                   "@type": "ContactPoint",

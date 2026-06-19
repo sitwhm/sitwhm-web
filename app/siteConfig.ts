@@ -26,8 +26,6 @@ export const siteConfig = {
     instructor: "DJ Adams (SAP Developer Advocate)",
   },
   social: {
-    twitter: "@sitwhm",
-    linkedin: "company/syntax",
-    github: "maxstreifeneder/sitwhm",
+    github: "sitwhm/sitwhm-web",
   },
 }
