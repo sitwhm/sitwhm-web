@@ -15,6 +15,8 @@ export interface Sponsor {
   logo: string
   website: string
   description?: string
+  /** Per-logo optical scale (1 = default). Use to compensate for logos with internal whitespace. */
+  logoScale?: number
 }
 
 export interface AboutCard {

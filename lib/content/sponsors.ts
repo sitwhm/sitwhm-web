@@ -10,11 +10,12 @@ export const sponsors: Sponsor[] = [
   },
   // Placeholders for other sponsors
   {
-    id: "gold1",
-    name: "Gold Sponsor 1",
+    id: "sva",
+    name: "SVA System Vertrieb Alexander GmbH",
     tier: "gold",
-    logo: "/logos/placeholder.svg",
-    website: "#",
+    logo: "/logos/sva.svg",
+    website: "https://www.sva.de",
+    logoScale: 1.25,
   },
   {
     id: "gold2",
