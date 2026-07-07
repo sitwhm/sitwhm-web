@@ -58,16 +58,9 @@ export const speakers: Person[] = [
   },
   {
     id: "speaker-9",
-    name: "Speaker 9 - To Be Announced",
-    title: "",
-    bio: "Speaker details will be announced soon. Stay tuned!",
-    photo: "/people/placeholder.svg",
-  },
-  {
-    id: "speaker-10",
-    name: "Speaker 10 - To Be Announced",
-    title: "",
-    bio: "Speaker details will be announced soon. Stay tuned!",
-    photo: "/people/placeholder.svg",
+    name: "Matthias Steiner",
+    title: "Vice President Global Business Innovation",
+    company: "Syntax",
+    photo: "/people/matthias-steiner.png",
   },
 ]

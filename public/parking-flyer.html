@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Parkplatz · SAP Inside Track Weinheim 2026</title>
+<style>
+  :root {
+    --syntax-blue: #0632A0;
+    --syntax-cyan: #1EB4E6;
+    --syntax-dark: #0A1749;
+    --syntax-white: #ffffff;
+  }
+
+  @page {
+    size: A5 portrait;
+    margin: 0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #eaeaea;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: var(--syntax-white);
+  }
+
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+
+  .flyer {
+    position: relative;
+    width: 148mm;
+    height: 210mm;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(30, 180, 230, 0.25), transparent 55%),
+      radial-gradient(circle at 80% 80%, rgba(30, 180, 230, 0.18), transparent 55%),
+      linear-gradient(135deg, var(--syntax-blue) 0%, var(--syntax-dark) 100%);
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
+    color: var(--syntax-white);
+  }
+
+  /* Geometric background element */
+  .flyer::before {
+    content: "";
+    position: absolute;
+    top: -80mm;
+    right: -80mm;
+    width: 200mm;
+    height: 200mm;
+    background:
+      conic-gradient(from 45deg, transparent 0deg, rgba(255,255,255,0.04) 90deg, transparent 180deg);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .flyer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 12mm 12mm;
+    mask-image: linear-gradient(to bottom, transparent, black 40%, black 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 40%, black 100%);
+    pointer-events: none;
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    padding: 14mm 12mm;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Top overline */
+  .overline {
+    display: flex;
+    align-items: center;
+    gap: 8pt;
+    font-size: 9pt;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--syntax-cyan);
+  }
+  .overline::before {
+    content: "";
+    display: inline-block;
+    width: 18pt;
+    height: 1.5pt;
+    background: var(--syntax-cyan);
+  }
+
+  /* Hero P symbol */
+  .p-block {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 8mm;
+  }
+  .p-mark {
+    flex-shrink: 0;
+    width: 42mm;
+    height: 42mm;
+    background: var(--syntax-white);
+    border-radius: 6mm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8mm 20mm -6mm rgba(30, 180, 230, 0.55);
+    position: relative;
+  }
+  .p-mark::after {
+    content: "";
+    position: absolute;
+    inset: -4pt;
+    border: 1.5pt solid rgba(30, 180, 230, 0.4);
+    border-radius: 7mm;
+  }
+  .p-mark span {
+    font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+    font-size: 88pt;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    color: var(--syntax-blue);
+    background: linear-gradient(135deg, var(--syntax-blue), var(--syntax-cyan));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding-top: 4pt;
+  }
+  .p-tag {
+    display: flex;
+    flex-direction: column;
+    gap: 3pt;
+  }
+  .p-tag-small {
+    font-size: 8pt;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  .p-tag-big {
+    font-size: 18pt;
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--syntax-white);
+  }
+
+  /* Main headline */
+  .headline {
+    margin-top: 12mm;
+    font-size: 34pt;
+    font-weight: 800;
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+    color: var(--syntax-white);
+  }
+  .headline .accent {
+    background: linear-gradient(90deg, var(--syntax-cyan), #7de3ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .subhead {
+    margin-top: 4mm;
+    font-size: 11pt;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.78);
+    max-width: 100%;
+  }
+
+  /* Divider */
+  .rule {
+    margin-top: 8mm;
+    height: 1px;
+    background: linear-gradient(to right, rgba(255,255,255,0.35), rgba(255,255,255,0));
+  }
+
+  /* Details grid */
+  .details {
+    margin-top: 6mm;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5mm 6mm;
+  }
+  .detail-label {
+    font-size: 7.5pt;
+    font-weight: 600;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--syntax-cyan);
+    margin-bottom: 2pt;
+  }
+  .detail-value {
+    font-size: 11pt;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--syntax-white);
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: auto;
+    padding-top: 8mm;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  .brand {
+    display: flex;
+    flex-direction: column;
+    gap: 2pt;
+  }
+  .brand-primary {
+    font-size: 10pt;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color: var(--syntax-white);
+  }
+  .brand-secondary {
+    font-size: 8pt;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+  }
+  .hashtag {
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--syntax-cyan);
+    text-transform: uppercase;
+    border: 1pt solid rgba(30, 180, 230, 0.4);
+    padding: 4pt 8pt;
+    border-radius: 2mm;
+  }
+
+  /* Print controls */
+  .print-bar {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    gap: 8px;
+    font-family: -apple-system, sans-serif;
+    z-index: 100;
+  }
+  .print-bar button {
+    background: #111;
+    color: white;
+    border: 0;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  .print-bar button:hover { background: #333; }
+
+  @media print {
+    body { background: none; padding: 0; }
+    .print-bar { display: none; }
+    .flyer { box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="print-bar">
+    <button onclick="window.print()">Print / Save as PDF</button>
+  </div>
+
+  <div class="flyer">
+    <div class="content">
+      <div class="overline">SAP Inside Track Weinheim · 19.09.2026</div>
+
+      <div class="p-block">
+        <div class="p-mark"><span>P</span></div>
+        <div class="p-tag">
+          <div class="p-tag-small">Parkplatz</div>
+          <div class="p-tag-big">Reserviert für<br/>Teilnehmer &amp; Speaker</div>
+        </div>
+      </div>
+
+      <div class="headline">
+        Willkommen<br/>
+        beim <span class="accent">#sitWHM</span>.
+      </div>
+      <div class="subhead">
+        Dieser Parkplatz ist am 19. September 2026 exklusiv für Gäste des SAP Inside Track Weinheim vorgesehen. Bitte parken Sie nur mit sichtbarem Event-Nachweis.
+      </div>
+
+      <div class="rule"></div>
+
+      <div class="details">
+        <div>
+          <div class="detail-label">Datum</div>
+          <div class="detail-value">Sa · 19.09.2026<br/>09:00 – 18:00 Uhr</div>
+        </div>
+        <div>
+          <div class="detail-label">Location</div>
+          <div class="detail-value">Syntax Auditorium<br/>Höhnerweg 2-4, Weinheim</div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="brand">
+          <div class="brand-primary">sitwhm.de</div>
+          <div class="brand-secondary">Free Community Conference</div>
+        </div>
+        <div class="hashtag">#SITWHM</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

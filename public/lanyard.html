@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lanyard · SAP Inside Track Weinheim 2026</title>
+<style>
+  :root {
+    --syntax-blue: #0632A0;
+    --syntax-cyan: #1EB4E6;
+    --syntax-dark: #0A1749;
+    --syntax-white: #ffffff;
+  }
+
+  @page {
+    size: A7 portrait;
+    margin: 0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #eaeaea;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: var(--syntax-white);
+  }
+
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .badge {
+    position: relative;
+    width: 74mm;
+    height: 105mm;
+    background:
+      radial-gradient(circle at 20% 15%, rgba(30, 180, 230, 0.28), transparent 55%),
+      radial-gradient(circle at 85% 90%, rgba(30, 180, 230, 0.18), transparent 55%),
+      linear-gradient(160deg, var(--syntax-blue) 0%, var(--syntax-dark) 100%);
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+    color: var(--syntax-white);
+  }
+
+  .badge::before {
+    content: "";
+    position: absolute;
+    top: -40mm;
+    right: -40mm;
+    width: 100mm;
+    height: 100mm;
+    background: conic-gradient(from 45deg, transparent 0deg, rgba(255,255,255,0.05) 90deg, transparent 180deg);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .badge::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 7mm 7mm;
+    mask-image: linear-gradient(to bottom, transparent, black 30%, black 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 30%, black 100%);
+    pointer-events: none;
+  }
+
+  /* Lanyard punch hole hint (top) */
+  .punch {
+    position: absolute;
+    top: 3mm;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10mm;
+    height: 2mm;
+    border-radius: 2mm;
+    border: 0.5pt dashed rgba(255, 255, 255, 0.25);
+    z-index: 2;
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    padding: 8mm 6mm 6mm;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Overline */
+  .overline {
+    display: flex;
+    align-items: center;
+    gap: 4pt;
+    font-size: 5.5pt;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--syntax-cyan);
+    margin-top: 3mm;
+  }
+  .overline::before {
+    content: "";
+    display: inline-block;
+    width: 10pt;
+    height: 1pt;
+    background: var(--syntax-cyan);
+  }
+
+  /* Event title */
+  .event-title {
+    margin-top: 2mm;
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    color: var(--syntax-white);
+  }
+  .event-title .accent {
+    background: linear-gradient(90deg, var(--syntax-cyan), #7de3ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Role pill */
+  .role-pill {
+    margin-top: auto;
+    margin-bottom: 2.5mm;
+    display: inline-flex;
+    align-items: center;
+    gap: 4pt;
+    align-self: flex-start;
+    padding: 3pt 6pt;
+    border-radius: 3mm;
+    background: rgba(30, 180, 230, 0.15);
+    border: 0.75pt solid rgba(30, 180, 230, 0.5);
+    font-size: 6pt;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--syntax-cyan);
+  }
+  .role-pill.attendee { background: rgba(30, 180, 230, 0.15); border-color: rgba(30, 180, 230, 0.5); color: var(--syntax-cyan); }
+  .role-pill.speaker { background: rgba(255, 255, 255, 0.18); border-color: rgba(255, 255, 255, 0.7); color: var(--syntax-white); }
+  .role-pill.sponsor { background: rgba(60, 200, 90, 0.18); border-color: rgba(60, 200, 90, 0.6); color: #7ee89a; }
+  .role-pill.organizer { background: rgba(255, 200, 40, 0.18); border-color: rgba(255, 200, 40, 0.7); color: #ffd54a; }
+  .role-pill .dot {
+    width: 3pt;
+    height: 3pt;
+    border-radius: 50%;
+    background: currentColor;
+  }
+
+  /* Name */
+  .name {
+    font-size: 17pt;
+    font-weight: 800;
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    color: var(--syntax-white);
+    word-wrap: break-word;
+  }
+
+  /* Company / title */
+  .subline {
+    margin-top: 2mm;
+    font-size: 7pt;
+    font-weight: 500;
+    line-height: 1.35;
+    color: rgba(255, 255, 255, 0.75);
+  }
+  .subline strong {
+    color: var(--syntax-white);
+    font-weight: 600;
+  }
+
+  /* Divider + footer */
+  .rule {
+    margin-top: 4mm;
+    height: 1px;
+    background: linear-gradient(to right, rgba(255,255,255,0.35), rgba(255,255,255,0));
+  }
+
+  .footer {
+    margin-top: 2mm;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 3mm;
+  }
+  .footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 1pt;
+  }
+  .footer-primary {
+    font-size: 6.5pt;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--syntax-white);
+  }
+  .footer-secondary {
+    font-size: 5pt;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+  }
+  .hashtag {
+    font-size: 5.5pt;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--syntax-cyan);
+    text-transform: uppercase;
+    border: 0.75pt solid rgba(30, 180, 230, 0.4);
+    padding: 2.5pt 5pt;
+    border-radius: 1.5mm;
+  }
+
+  /* Print controls */
+  .print-bar {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    gap: 8px;
+    font-family: -apple-system, sans-serif;
+    z-index: 100;
+    align-items: center;
+    background: white;
+    padding: 10px 12px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  }
+  .print-bar input, .print-bar select {
+    padding: 8px 10px;
+    font-size: 13px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+    font-family: inherit;
+  }
+  .print-bar input:focus, .print-bar select:focus {
+    border-color: var(--syntax-blue);
+  }
+  .print-bar button {
+    background: #111;
+    color: white;
+    border: 0;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .print-bar button:hover { background: #333; }
+
+  .hint {
+    text-align: center;
+    color: #666;
+    font-family: -apple-system, sans-serif;
+    font-size: 12px;
+    max-width: 480px;
+  }
+  .hint code { background: #ddd; padding: 1px 6px; border-radius: 3px; }
+
+  @media print {
+    body { background: none; padding: 0; gap: 0; }
+    .print-bar, .hint { display: none; }
+    .badge { box-shadow: none; }
+    .punch { display: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="print-bar">
+    <input id="nameInput" placeholder="Full name" />
+    <input id="orgInput" placeholder="Role, Company" />
+    <select id="roleInput">
+      <option value="attendee">Attendee</option>
+      <option value="speaker">Speaker</option>
+      <option value="sponsor">Sponsor</option>
+      <option value="organizer">Organizer</option>
+    </select>
+    <button onclick="window.print()">Print</button>
+  </div>
+
+  <div class="badge">
+    <div class="punch"></div>
+    <div class="content">
+      <div class="overline">19.09.2026 · Weinheim</div>
+      <div class="event-title">
+        SAP Inside Track<br/>
+        <span class="accent">#sitWHM</span>
+      </div>
+
+      <div class="role-pill attendee" id="rolePill">
+        <span class="dot"></span>
+        <span id="roleLabel">Attendee</span>
+      </div>
+
+      <div class="name" id="nameEl">First Last</div>
+      <div class="subline" id="orgEl"><strong>Role</strong> · Company</div>
+
+      <div class="rule"></div>
+
+      <div class="footer">
+        <div class="footer-left">
+          <div class="footer-primary">sitwhm.de</div>
+          <div class="footer-secondary">Free Community Conference</div>
+        </div>
+        <div class="hashtag">#SITWHM</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hint">
+    Live preview. URL params also work:
+    <code>?name=Max%20Mustermann&amp;org=Developer,%20Syntax&amp;role=speaker</code>
+  </div>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const nameEl = document.getElementById("nameEl");
+  const orgEl = document.getElementById("orgEl");
+  const rolePill = document.getElementById("rolePill");
+  const roleLabel = document.getElementById("roleLabel");
+  const nameInput = document.getElementById("nameInput");
+  const orgInput = document.getElementById("orgInput");
+  const roleInput = document.getElementById("roleInput");
+
+  const initialName = params.get("name") || "";
+  const initialOrg = params.get("org") || "";
+  const initialRole = (params.get("role") || "attendee").toLowerCase();
+
+  function applyRole(role) {
+    rolePill.className = "role-pill " + role;
+    roleLabel.textContent = role.charAt(0).toUpperCase() + role.slice(1);
+  }
+
+  function applyName(v) {
+    nameEl.textContent = v || "First Last";
+  }
+
+  function applyOrg(v) {
+    if (!v) {
+      orgEl.innerHTML = "<strong>Role</strong> · Company";
+      return;
+    }
+    // Split on first comma: "Role, Company" → bold Role
+    const parts = v.split(",");
+    if (parts.length >= 2) {
+      const role = parts[0].trim();
+      const rest = parts.slice(1).join(",").trim();
+      orgEl.innerHTML = "<strong>" + role + "</strong> · " + rest;
+    } else {
+      orgEl.textContent = v;
+    }
+  }
+
+  nameInput.value = initialName;
+  orgInput.value = initialOrg;
+  roleInput.value = ["attendee", "speaker", "sponsor", "organizer"].includes(initialRole) ? initialRole : "attendee";
+
+  applyName(initialName);
+  applyOrg(initialOrg);
+  applyRole(roleInput.value);
+
+  nameInput.addEventListener("input", (e) => applyName(e.target.value));
+  orgInput.addEventListener("input", (e) => applyOrg(e.target.value));
+  roleInput.addEventListener("change", (e) => applyRole(e.target.value));
+</script>
+</body>
+</html>

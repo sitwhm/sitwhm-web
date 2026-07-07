@@ -61,7 +61,7 @@ export function FridayProgram() {
                   </div>
                   <div className="flex items-center gap-2 text-sm text-gray-600">
                     <RiGroupLine className="h-4 w-4 text-gray-400" />
-                    <span>Limited to 50 participants</span>
+                    <span>Limited to 25 participants</span>
                   </div>
                 </div>
 
