@@ -25,6 +25,13 @@ export const sponsors: Sponsor[] = [
     website: "#",
   },
   {
+    id: "sap-press",
+    name: "SAP PRESS",
+    tier: "silver",
+    logo: "/logos/sap-press.jpg",
+    website: "https://www.sap-press.com",
+  },
+  {
     id: "silver1",
     name: "Silver Sponsor 1",
     tier: "silver",
