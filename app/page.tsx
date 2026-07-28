@@ -1,7 +1,6 @@
 import { featureFlags } from "./featureFlags"
 import { Hero } from "@/components/sections/Hero"
 import { About } from "@/components/sections/About"
-import { CallForSpeakersV3 as CallForSpeakers } from "@/components/sections/CallForSpeakersV3"
 import { Agenda } from "@/components/sections/Agenda"
 import { FridayProgram } from "@/components/sections/FridayProgram"
 import { Registration } from "@/components/sections/Registration"
@@ -44,13 +43,12 @@ export default function Home() {
     <main className="relative">
       <Hero />
       <About />
-      <CallForSpeakers />
       <Agenda />
-      <FridayProgram />
+      <Speakers />
       <Registration />
+      <FridayProgram />
       <Location />
       <Sponsors />
-      <Speakers />
       <Organizers />
       <FAQ />
       <Hashtag />

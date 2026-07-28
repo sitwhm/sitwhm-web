@@ -142,7 +142,7 @@ export function FridayProgram() {
                   </div>
                   <div className="flex items-center gap-2 text-sm text-gray-600">
                     <RiMapPinLine className="h-4 w-4 text-gray-400" />
-                    <span>TBD - Weinheim</span>
+                    <span>Woinheimer Brauerei, Friedrichstraße 23, 69469 Weinheim</span>
                   </div>
                 </div>
 

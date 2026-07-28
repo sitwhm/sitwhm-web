@@ -15,7 +15,7 @@ const faqs = [
   },
   {
     question: "Will there be food and drinks?",
-    answer: "Yes! Lunch and drinks are covered. Depending on sponsors and attendee numbers we may be able to offer more - stay tuned.",
+    answer: "Yes! On Saturday, lunch is on us - schnitzel plus a vegetarian option - and drinks are covered throughout the day. For Friday's CodeJam we have reserved seats at an Italian restaurant nearby, where we'll head over together for lunch (at your own expense).",
   },
   {
     question: "What should I bring?",

@@ -9,7 +9,7 @@ import { RiArrowRightLine, RiCalendarLine, RiMapPinLine, RiTimeLine } from "@rem
 import { useEffect, useState } from "react"
 
 function useCountdown(targetDate: string) {
-  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 })
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0 })
 
   useEffect(() => {
     const target = new Date(targetDate).getTime()
@@ -20,11 +20,10 @@ function useCountdown(targetDate: string) {
         days: Math.floor(diff / (1000 * 60 * 60 * 24)),
         hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
         minutes: Math.floor((diff / (1000 * 60)) % 60),
-        seconds: Math.floor((diff / 1000) % 60),
       })
     }
     update()
-    const interval = setInterval(update, 1000)
+    const interval = setInterval(update, 30_000)
     return () => clearInterval(interval)
   }, [targetDate])
 
@@ -117,8 +116,6 @@ export function Hero() {
             <CountdownUnit value={countdown.hours} label="Hours" />
             <span className="mt-[-1.25rem] text-xl font-medium text-gray-300 sm:mt-[-1.5rem]">:</span>
             <CountdownUnit value={countdown.minutes} label="Mins" />
-            <span className="mt-[-1.25rem] text-xl font-medium text-gray-300 sm:mt-[-1.5rem]">:</span>
-            <CountdownUnit value={countdown.seconds} label="Secs" />
           </div>
         </FadeDiv>
 
