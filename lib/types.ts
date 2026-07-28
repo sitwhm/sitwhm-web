@@ -6,6 +6,8 @@ export interface Session {
   description: string
   speakerId?: string | string[]
   track?: string
+  /** Coffee/lunch breaks: rendered as non-interactive break blocks in the agenda calendar grid. */
+  isBreak?: boolean
 }
 
 export interface Sponsor {

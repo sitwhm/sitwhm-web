@@ -11,6 +11,7 @@ import { NavbarRefined } from "@/components/layout/NavbarRefined"
 import { FooterRefined } from "@/components/layout/FooterRefined"
 import { FloatingCTA } from "@/components/layout/FloatingCTA"
 import { speakers } from "@/lib/content/speakers"
+import { sessions } from "@/lib/content/agenda"
 
 const isTeaserMode = featureFlags.pageMode === 'teaser' || featureFlags.pageMode === 'mystery'
 
@@ -169,6 +170,28 @@ export default function RootLayout({
                     }),
                     "image": `${siteConfig.url}${s.photo}`,
                   })),
+                "subEvent": sessions
+                  .filter((session) => !session.isBreak)
+                  .map((session) => {
+                    const [start, end] = session.time.split(" - ")
+                    return {
+                      "@type": "Event",
+                      "name": session.title,
+                      "description": session.description,
+                      "startDate": `2026-09-19T${start}:00+02:00`,
+                      "endDate": `2026-09-19T${end}:00+02:00`,
+                      "location": { "@type": "Place", "name": siteConfig.event.venue },
+                      "performer": (Array.isArray(session.speakerId)
+                        ? session.speakerId
+                        : session.speakerId
+                          ? [session.speakerId]
+                          : []
+                      )
+                        .map((id) => speakers.find((s) => s.id === id))
+                        .filter((s) => !!s)
+                        .map((s) => ({ "@type": "Person", "name": s.name })),
+                    }
+                  }),
               })
             }}
           />

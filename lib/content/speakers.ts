@@ -18,7 +18,7 @@ export const speakers: Person[] = [
   {
     id: "speaker-3",
     name: "Marian Zeis",
-    title: "Independent SAP Developer & Consultant",
+    title: "Independent Consultant and Developer",
     photo: "/people/marian-zeis.png",
   },
   {
