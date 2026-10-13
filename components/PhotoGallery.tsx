@@ -157,17 +157,19 @@ export function PhotoGallery({
             />
           </div>
 
-          <div
-            className="shrink-0 px-4 pb-6 pt-4 text-center md:px-6"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <p className="mx-auto max-w-2xl text-sm text-white/70">
-              {current.alt}
-            </p>
-            {current.credit && (
-              <p className="mt-1 text-sm text-white/40">Photo: {current.credit}</p>
-            )}
-          </div>
+          {/*
+            No caption under the photo. `alt` stays on the image itself, where
+            screen readers and the tile's aria-label still use it, but the
+            picture speaks for itself on screen.
+          */}
+          {current.credit && (
+            <div
+              className="shrink-0 px-4 pb-6 pt-4 text-center md:px-6"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <p className="text-sm text-white/40">Photo: {current.credit}</p>
+            </div>
+          )}
 
           {photos.length > 1 && (
             <>

@@ -180,28 +180,29 @@ speakers link to, so don't move it.
 
 ---
 
-## What's still fake
+## Deliberately incomplete
 
-Everything below needs real content. All of it is marked `TODO(max)` in the code.
+Nothing below is broken or a placeholder. Each one is a choice, and each one
+is a small edit away from changing.
 
-- **Slides.** Christian Lechner's deck is the only one expected. His entry in
-  `talks.ts` has the two fields ready and commented out: drop the PDF into
-  `public/slides/2026/`, uncomment `slidesFile`, set the status to
-  `"published"`. DJ Adams has no deck, which his entry states with
-  `"unavailable"`. The remaining talks are `"pending"` and therefore silent.
-  `public/slides/2026/PLACEHOLDER.pdf` is a generated stub kept only so the
-  folder stays in git.
-- **The two LinkedIn posts.** `coverage.ts` scaffolds entries for Christian
-  Lechner and Matthias Steiner with empty `url`, so neither renders. Paste the
-  post URLs, ideally with the embed urn, and check the summaries against what
-  they actually wrote before publishing them.
+- **Six of the eight videos are held back on purpose.** Only DJ Adams and
+  Christian Lechner are live. The rest keep their `youtubeId` in `talks.ts`
+  but sit on `videoStatus: "pending"`, so the page says "Publishing soon".
+  Releasing one is a single word: change it to `"published"`. The hero card
+  counts what is live, so "2 of 8 sessions online" updates itself.
+- **Slides.** Christian Lechner's deck is published. DJ Adams has none, which
+  his entry states with `"unavailable"`. The other six are `"pending"` and
+  therefore silent; if a speaker sends a deck, drop it into
+  `public/slides/2026/` and fill in `slidesFile`.
 - **Attendee numbers.** Everything in `stats.ts` is commented out, so the block
   doesn't render at all. Fill in attendees and companies from the Tito export
   and it appears, labelled "sitWHM 2026 in numbers" so nobody mistakes last
   year's figures for a 2027 promise. Leaving it as-is is a deliberate choice,
   not an oversight.
-
-Regenerate the stub PDF any time with `python3 scripts/make-placeholder-pdf.py`.
+- **One coverage post is not a recap.** Holger Bruchelt's entry in
+  `coverage.ts` is about no-shows at free community events and the catering
+  they waste. Honest community feedback, flagged with a `TODO(max)` so nobody
+  publishes it without having read it.
 
 ## Decisions worth knowing
 
@@ -240,11 +241,13 @@ Regenerate the stub PDF any time with `python3 scripts/make-placeholder-pdf.py`.
 
 ## Open questions
 
-1. Christian Lechner's slide PDF, and the two LinkedIn post URLs. Those are
-   the only two things anyone is still waiting on.
-2. Whether a photography notice was actually shown at registration. The
+1. Whether a photography notice was actually shown at registration. The
    published photos show identifiable attendees, mostly from behind, and the
    speakers clearly. The takedown mailto is live either way.
+2. Whether the LinkedIn embeds should keep loading with the page. They do
+   right now, which is what a visitor expects, but it contacts LinkedIn on
+   every page view and sets their cookies, so a consent banner is expected for
+   a German site. `featureFlags.linkedinEmbeds: 'click-to-load'` switches it.
 
 Settled on purpose, so nobody reopens them by accident: no analytics of any
 kind, no sponsor pack, no full-gallery link, no attendee numbers, and 2027
