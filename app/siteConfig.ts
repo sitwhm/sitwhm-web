@@ -28,4 +28,12 @@ export const siteConfig = {
   social: {
     github: "sitwhm/sitwhm-web",
   },
+  /** Where sponsor enquiries and photo takedown requests land. */
+  contactEmail: "team@sitwhm.de",
+  /**
+   * Reused for "notify me about the next edition". Same form as the 2026
+   * signup, one less thing to maintain.
+   */
+  notifyFormUrl:
+    "https://docs.google.com/forms/d/e/1FAIpQLSdvnH7H4u4xr0eg5ChBOCkpxVB620-YjLlB4DOMJJ8mJunoxQ/viewform",
 }

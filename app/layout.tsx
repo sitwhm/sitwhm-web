@@ -12,8 +12,27 @@ import { FooterRefined } from "@/components/layout/FooterRefined"
 import { FloatingCTA } from "@/components/layout/FloatingCTA"
 import { speakers } from "@/lib/content/speakers"
 import { sessions } from "@/lib/content/agenda"
+import { latestPastEdition, upcomingEdition } from "@/lib/editions"
 
 const isTeaserMode = featureFlags.pageMode === 'teaser' || featureFlags.pageMode === 'mystery'
+const isRecapMode = featureFlags.pageMode === 'recap'
+
+const recapTitle = `sitWHM ${latestPastEdition.year}: Talks, Slides & Photos`
+const recapDescription = `Recordings, slide decks and photos from SAP Inside Track Weinheim ${latestPastEdition.year}.${
+  upcomingEdition ? ` sitWHM returns ${upcomingEdition.dateLabel.toLowerCase()}.` : ""
+}`
+
+function pageTitle() {
+  if (isRecapMode) return recapTitle
+  if (isTeaserMode) return `Save the Date - ${siteConfig.name}`
+  return siteConfig.name
+}
+
+function pageDescription() {
+  if (isRecapMode) return recapDescription
+  if (isTeaserMode) return `Save the date for ${siteConfig.event.date}. ${siteConfig.description}`
+  return siteConfig.description
+}
 
 export const viewport: Viewport = {
   themeColor: "#0632A0",
@@ -21,10 +40,8 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: isTeaserMode ? `Save the Date - ${siteConfig.name}` : siteConfig.name,
-  description: isTeaserMode
-    ? `Save the date for ${siteConfig.event.date}. ${siteConfig.description}`
-    : siteConfig.description,
+  title: pageTitle(),
+  description: pageDescription(),
   alternates: {
     canonical: "/",
   },
@@ -57,17 +74,15 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteConfig.url,
-    title: isTeaserMode ? `Save the Date - ${siteConfig.name}` : siteConfig.name,
-    description: isTeaserMode
-      ? `Save the date for ${siteConfig.event.date}. ${siteConfig.description}`
-      : siteConfig.description,
+    title: pageTitle(),
+    description: pageDescription(),
     siteName: siteConfig.shortName,
     images: [
       {
         url: `${siteConfig.url}/og-image.jpg`,
         width: 1200,
         height: 630,
-        alt: "SAP Inside Track Weinheim 2026 - Free Community Conference, September 19, 2026",
+        alt: "Everyone gathered for the closing group photo at SAP Inside Track Weinheim 2026",
       },
     ],
   },

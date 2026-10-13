@@ -8,15 +8,50 @@ import { RiCloseLine, RiMenuLine } from "@remixicon/react"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 
-const navLinks = [
-  { href: "#about", label: "About" },
-  { href: "#agenda", label: "Agenda" },
-  { href: "#speakers", label: "Speakers" },
-  { href: "#friday", label: "Friday" },
-  { href: "#location", label: "Location" },
-  { href: "#sponsors", label: "Sponsors" },
-  { href: "#faq", label: "FAQ" },
-]
+const isRecap = featureFlags.pageMode === 'recap'
+
+// In recap mode the live-event anchors (#agenda, #registration, ...) don't
+// exist on the page, so the nav points at the post-event sections instead.
+const navLinks = isRecap
+  ? [
+      { href: "#recordings", label: "Talks & Slides" },
+      { href: "#photos", label: "Photos" },
+      { href: "#next", label: "2027" },
+      { href: "#coverage", label: "#sitWHM" },
+    ]
+  : [
+      { href: "#about", label: "About" },
+      { href: "#agenda", label: "Agenda" },
+      { href: "#speakers", label: "Speakers" },
+      { href: "#friday", label: "Friday" },
+      { href: "#location", label: "Location" },
+      { href: "#sponsors", label: "Sponsors" },
+      { href: "#faq", label: "FAQ" },
+    ]
+
+// Registration is closed once the event is over, so the CTA becomes "tell me
+// about next year" instead of a dead Tito link.
+const cta = isRecap
+  ? {
+      // Sponsors are what we're actively looking for right now, so the one
+      // button in the navbar points at them. Attendee sign-up lives inside
+      // the 2027 section.
+      href: "#next",
+      label: "Sponsor 2027",
+      external: false,
+    }
+  : {
+      href:
+        featureFlags.titoMode === 'b'
+          ? siteConfig.registration.url
+          : "#registration",
+      label: "Save Your Free Spot",
+      external: featureFlags.titoMode === 'b',
+    }
+
+const ctaLinkProps = cta.external
+  ? { target: "_blank", rel: "noopener noreferrer" }
+  : {}
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -72,8 +107,8 @@ export function Navbar() {
         </div>
 
         <div className="hidden md:block">
-          <a href={featureFlags.titoMode === 'b' ? siteConfig.registration.url : "#registration"} {...(featureFlags.titoMode === 'b' ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
-            <Button size="sm">Save Your Free Spot</Button>
+          <a href={cta.href} {...ctaLinkProps}>
+            <Button size="sm">{cta.label}</Button>
           </a>
         </div>
 
@@ -109,11 +144,11 @@ export function Navbar() {
           ))}
           <div className="pt-2">
             <a
-              href={featureFlags.titoMode === 'b' ? siteConfig.registration.url : "#registration"}
-              {...(featureFlags.titoMode === 'b' ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              href={cta.href}
+              {...ctaLinkProps}
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              <Button className="w-full">Save Your Free Spot</Button>
+              <Button className="w-full">{cta.label}</Button>
             </a>
           </div>
         </div>

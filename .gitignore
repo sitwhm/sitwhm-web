@@ -43,3 +43,6 @@ next-env.d.ts
 # Local-only docs (not tracked)
 CLAUDE.md
 LEGAL_COMPLIANCE_SUMMARY.md
+
+# Local Claude Code config (dev server launch profile)
+.claude/

@@ -1,143 +1,258 @@
-# sitWHM 2026 - SAP Inside Track Weinheim
+# sitwhm.de
 
-Minimal dark mode "Save the Date" website for SAP Inside Track Weinheim 2026.
+Next.js 16 (App Router), static export, Tailwind v4, TypeScript.
+Deployed to GitHub Pages on push to `main`.
 
-## 🎨 Design
-
-**Style:** Swiss Minimalism + Brutalism  
-**Colors:** Pure black & white (monochrome)  
-**Typography:** Geist Sans, bold, massive scale (144px hero)  
-**Vibe:** Professional, bold, minimal, sophisticated
-
-**NOT:** AI-shiny, gradients, glows, glassmorphism, colorful
-
-## 🚀 Quick Start
+## Run it
 
 ```bash
-# Install
 npm install
-
-# Develop
 npm run dev
-
-# Build
-npm run build
-
-# Deploy
-vercel deploy --prod
 ```
 
-## 📁 Important Files
+Then open http://localhost:3000.
 
-```
-DESIGN_PROMPT.md              ← How to recreate this design
-```
+## Where things live
 
-## 🎯 Three Modes Available
+| Folder | What's in it |
+|---|---|
+| `app/` | Routes. `page.tsx` is the homepage, `2026/page.tsx` the permanent archive, `siteConfig.ts` holds URLs and the analytics token. |
+| `lib/content/2026/` | Everything about the 2026 edition: talks, coverage links, photos, stats. This is the folder you edit. |
+| `lib/editions.ts` | The year registry. Announcing 2027 is an edit here. |
+| `components/sections/` | One file per page section. |
+| `print-assets/` | HTML files meant to be printed to PDF (lanyard, parking flyer). |
 
-Edit `app/featureFlags.ts`:
+The page you see is picked by `pageMode` in `app/featureFlags.ts`. It's on
+`'recap'`, the post-event site. The other modes (`full`, `teaser`, `mystery`)
+are the pre-event pages from earlier this year and still work.
 
-```typescript
-export const featureFlags = {
-  pageMode: 'mystery'  // or 'teaser' or 'full'
+---
+
+## Adding a speaker's video and slides
+
+Both live in one place: `lib/content/2026/talks.ts`. The title, speaker and
+abstract come from `lib/content/agenda.ts` automatically, so you never retype them.
+
+**Video:** upload to the sitWHM YouTube channel, then:
+
+```ts
+{
+  id: "talk5",                 // must match the id in agenda.ts
+  youtubeId: "dQw4w9WgXcQ",    // the bit after ?v= in the YouTube URL
+  videoStatus: "published",
+  ...
 }
 ```
 
-| Mode | Style | Use When |
-|------|-------|----------|
-| **mystery** (current) | Minimal dark + countdown | Build hype (6+ months out) |
-| **teaser** | Light & clean | Simple announcement |
-| **full** | Comprehensive | All details ready |
+Then grab the thumbnail and commit it:
 
-## ✅ Before Launch
-
-1. **Fill your information** in:
-   - `app/imprint/page.tsx`
-   - `app/privacy/page.tsx`
-
-2. **Test everything**:
-   - Form submission works
-   - Countdown shows correctly
-   - Mobile responsive
-   - All links work
-
-## 🎨 Design Details
-
-### Current Page Structure
-
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━
-  sitWHM 2026    Notify Me
-━━━━━━━━━━━━━━━━━━━━━━━━━
-
-      Save the Date
-
-         sitWHM
-
-          2026
-
-    243  ·  15  ·  42
-   Days   Hours   Min
-
-Sept 19, 2026 · Weinheim
-
-      Get Notified
-      ─────────────
-
-━━━━━━━━━━━━━━━━━━━━━━━━━
+```bash
+npm run thumbnails
 ```
 
-### Key Features
+That downloads the preview image for every `youtubeId` into
+`public/thumbnails/2026/`. It has to run whenever you add or change a video,
+otherwise that talk falls back to a plain dark tile. See the note below on why
+the images are hosted here instead of loaded from YouTube.
 
-- ✅ Pure black background (#000000)
-- ✅ Massive typography (144px heading)
-- ✅ Live countdown timer
-- ✅ Minimal design (no AI shininess)
-- ✅ GDPR-compliant email form
-- ✅ Mobile responsive
-- ✅ Accessible (WCAG AA)
+Match videos to talks by their **title**, not by the order you received the
+links in. The 2026 batch arrived out of agenda order.
 
-## 📖 Documentation
+**Slides:** two ways, pick one per talk.
 
-**Design & Recreation:**
-- `DESIGN_PROMPT.md` - Complete design specification & prompting guide
+A deck we host, which keeps working whatever happens to anyone else's account.
+Drop the PDF into `public/slides/2026/`, then:
 
-**Legal Compliance:**
-- `app/privacy/page.tsx` - Privacy policy (includes Impressum)
+```ts
+{
+  slidesFile: "cedric-heisel.pdf", // the filename you just added
+  slidesStatus: "published",
+}
+```
 
-## 🔧 Tech Stack
+Or a deck the speaker publishes themselves:
 
-- **Framework:** Next.js 14+ (App Router)
-- **Styling:** Tailwind CSS
-- **Language:** TypeScript
-- **Font:** Geist Sans
-- **Icons:** Remix Icons
-- **Forms:** Google Forms (GDPR-compliant)
+```ts
+{
+  slidesUrl: "https://github.com/someone/their-talk",
+  slidesStatus: "published",
+}
+```
 
-## 🎯 Event Details
+If both are set, the hosted file wins. Either way `slidesStatus` has to be
+`"published"` or nothing appears.
 
-- **Name:** SAP Inside Track Weinheim (sitWHM)
-- **Date:** September 19th, 2026
-- **Time:** 9:00 AM - 6:00 PM
-- **Location:** Weinheim, Germany
-- **Venue:** Syntax Auditorium
-- **Capacity:** 150 attendees
-- **Price:** Free
+When a talk simply has no deck, say so rather than leaving it silent:
 
-## ⚖️ Legal Compliance
+```ts
+{ slidesStatus: "unavailable" }   // renders "No slides for this talk"
+```
 
-✅ **GDPR Compliant:**
-- Explicit consent checkbox
-- Privacy policy with data processor disclosure
-- User rights documented
-- Google Forms integration disclosed
+`"pending"` renders nothing at all. That is the default, and it is why the
+section does not carry a column of identical "coming soon" lines.
 
-✅ **German TMG Compliant:**
-- Complete Impressum
-- Contact information
-- Liability disclaimers
+If a speaker says no, set the status to `"declined"` and the page says "not
+published at the speaker's request" instead of quietly dropping the talk.
+`"pending"` shows "coming soon". Nothing goes live by accident: a talk stays
+hidden until you set `published` **and** provide the id or filename.
 
-## 🚀 Deployment
+## Adding photos
+
+Originals go through `scripts/process-photos.py`, which develops them (white
+balance, levels, tone curve, vibrance, resize, sharpen) and writes two sizes:
+the full 2000px file and a 900px thumbnail for the grid.
+
+One-off setup, these deps are not part of the site build:
+
+```bash
+python3 -m venv .photovenv && .photovenv/bin/pip install pillow pillow-heif numpy
+```
+
+Then:
+
+```bash
+.photovenv/bin/python scripts/process-photos.py --src ~/Downloads/your-photos
+```
+
+The script processes a curated `SELECTION` near the bottom of the file: a map
+of source index to output slug. For a new batch, use `--all` to process
+everything, look at the results, then rewrite that map. There is no clever way
+around looking at the photos.
+
+Finally list them in `lib/content/2026/photos.ts`. `src` is the filename only;
+the gallery builds both the thumbnail and full-size URL from it. Write a real
+`alt` for each: it is the caption shown in the lightbox.
+
+### A note on the file format
+
+The photos are committed as **WebP**, which is the default the script writes.
+These are photographs: the same set was 68 MB as PNG against 4 MB as WebP with
+no visible difference. PNG is the right choice for screenshots and line art,
+not for photographs, and git keeps every version forever.
+
+If you ever need PNG anyway:
+
+```bash
+.photovenv/bin/python scripts/process-photos.py --src ~/Downloads/your-photos --format png
+```
+
+Then delete the `.webp` files and change the extensions in `photos.ts`.
+
+## Adding a sponsor
+
+`lib/content/sponsors.ts`. Logo into `public/logos/`, then:
+
+```ts
+{
+  id: "acme",
+  name: "ACME GmbH",
+  tier: "gold",              // platinum | gold | silver
+  logo: "/logos/acme.svg",
+  website: "https://acme.example",
+  logoScale: 1.25,           // optional, for logos with lots of whitespace
+}
+```
+
+Entries whose logo path contains `placeholder` are filtered out everywhere, so
+you can leave the dummy rows in place.
+
+## The 2027 sponsor pitch
+
+Deliberately vague. The section says we're looking for sponsors and gives one
+email address. No tiers, no prices, no benefit lists, no pack download, because
+none of it is decided yet and a half-finished package invites questions we
+can't answer.
+
+There is deliberately no sponsor pack in the repo. A draft existed and was
+removed along with its placeholder PDF: an unlinked document with TODO prices
+in it is just something to trip over later. When you want one, write it fresh
+once the tiers are actually decided.
+
+## Announcing the 2027 date
+
+`lib/editions.ts`. Change the 2027 entry's `status` from `'announced'` to
+`'confirmed'` and fill in `dateLabel` and `isoDate`. The homepage band picks it
+up on its own.
+
+When 2027 becomes the live event, flip `pageMode` back to `'full'`. The 2026
+material stays reachable at `/2026/` forever. That URL is what sponsors and
+speakers link to, so don't move it.
+
+---
+
+## What's still fake
+
+Everything below needs real content. All of it is marked `TODO(max)` in the code.
+
+- **Slides.** Christian Lechner's deck is the only one expected. His entry in
+  `talks.ts` has the two fields ready and commented out: drop the PDF into
+  `public/slides/2026/`, uncomment `slidesFile`, set the status to
+  `"published"`. DJ Adams has no deck, which his entry states with
+  `"unavailable"`. The remaining talks are `"pending"` and therefore silent.
+  `public/slides/2026/PLACEHOLDER.pdf` is a generated stub kept only so the
+  folder stays in git.
+- **The two LinkedIn posts.** `coverage.ts` scaffolds entries for Christian
+  Lechner and Matthias Steiner with empty `url`, so neither renders. Paste the
+  post URLs, ideally with the embed urn, and check the summaries against what
+  they actually wrote before publishing them.
+- **Attendee numbers.** Everything in `stats.ts` is commented out, so the block
+  doesn't render at all. Fill in attendees and companies from the Tito export
+  and it appears, labelled "sitWHM 2026 in numbers" so nobody mistakes last
+  year's figures for a 2027 promise. Leaving it as-is is a deliberate choice,
+  not an oversight.
+
+Regenerate the stub PDF any time with `python3 scripts/make-placeholder-pdf.py`.
+
+## Decisions worth knowing
+
+- **Videos are click-to-load, with self-hosted thumbnails.** The preview images
+  live in `public/thumbnails/`, fetched once by `npm run thumbnails`. Pointing
+  an `<img>` at `i.ytimg.com` would look identical but hand Google every
+  visitor's IP address on page load, which is the thing click-to-load exists to
+  prevent. As built, the page makes no third-party request at all until someone
+  presses play, and then it's `youtube-nocookie.com`. That's why there's no
+  cookie banner.
+- **Slides are plain PDFs on our own domain.** No SlideShare, no Speaker Deck,
+  no third-party account. The files are in git, so they can't disappear.
+- **Coverage is hand-curated, not scraped.** LinkedIn has no public hashtag API
+  and scraping it breaks and violates their terms. Write your own one-line
+  summary per post, and don't paste the author's text, it's their copyright.
+- **2027 leads the page.** Announcement bar under the navbar, then the hero,
+  then the 2027 and sponsor section, before the recap material. The navbar CTA
+  points at it too. To stop that burying the recap, the hero carries two large
+  entry cards straight into the talks and the photos. Those two are what most
+  visitors arrive for, so they are the biggest clickable thing on the first
+  screen. The talk count in the card is read from `talks.ts`, not typed.
+- **2027 shows a season, not a date.** A date we later move costs more
+  credibility with sponsors than no date does.
+- **The sponsor ask is intentionally unspecific.** One sentence and one email
+  address. Tiers and prices come later, in the conversation.
+- **Section headers come from `components/ui/SectionHeading.tsx`.** Small
+  uppercase eyebrow, large title, optional lede, matching the sections that
+  were already on the site. Reuse it for anything new.
+- **The type scale is five roles, one typeface.** `text-5xl sm:text-7xl` for
+  the page title, `text-4xl sm:text-5xl` for section headings, `text-xl` for
+  card and talk titles, `text-base` for body, `text-sm` for meta and captions.
+  Letter-spacing is only ever `tracking-tight` on headings or
+  `tracking-[0.2em]` on uppercase eyebrows. Adding a sixth size needs a reason.
+- **Photos have a takedown link** under the grid. These are identifiable
+  people; make sure there was a photography notice at registration.
+
+## Open questions
+
+1. Christian Lechner's slide PDF, and the two LinkedIn post URLs. Those are
+   the only two things anyone is still waiting on.
+2. Whether a photography notice was actually shown at registration. The
+   published photos show identifiable attendees, mostly from behind, and the
+   speakers clearly. The takedown mailto is live either way.
+
+Settled on purpose, so nobody reopens them by accident: no analytics of any
+kind, no sponsor pack, no full-gallery link, no attendee numbers, and 2027
+stays a season rather than a date.
+
+---
+
+## Deployment
 
 **Production:** GitHub Pages at https://sitwhm.de (custom domain, HTTPS enforced)
 
@@ -150,75 +265,18 @@ Sept 19, 2026 · Weinheim
 
 ### HTTPS / TLS certificate
 
-GitHub Pages issues and **auto-renews** the certificate via Let's Encrypt (~30 days before the 90-day expiry). No manual action needed as long as:
+GitHub Pages issues and **auto-renews** the certificate via Let's Encrypt (~30
+days before the 90-day expiry). No manual action needed as long as:
 
 - DNS A records for `sitwhm.de` stay on GitHub Pages IPs (`185.199.108-111.153`)
 - Domain remains "verified" in repo Settings → Pages
 - "Enforce HTTPS" stays enabled
 
-If auto-renew ever fails: remove and re-add the custom domain in Settings → Pages to trigger a fresh cert request. Let's Encrypt certs cannot be extended beyond 90 days, and GitHub Pages does not support uploading custom certificates.
+If auto-renew ever fails: remove and re-add the custom domain in Settings →
+Pages to trigger a fresh cert request. Let's Encrypt certs cannot be extended
+beyond 90 days, and GitHub Pages does not support uploading custom certificates.
 
-## 📝 Quick Commands
+## Design
 
-```bash
-npm run dev          # Start development server
-npm run build        # Build for production
-npm run start        # Start production server
-npm run lint         # Run linter
-```
-
-## 🎨 Color Palette
-
-```css
---background: #000000;           /* Pure black */
---text: #FFFFFF;                 /* Pure white */
---text-muted: rgba(255,255,255,0.4);   /* 40% white */
---border: rgba(255,255,255,0.1);       /* 10% white */
---grid: rgba(255,255,255,0.02);        /* 2% white */
-```
-
-## 📱 Responsive
-
-Tested at:
-- Mobile: 375px
-- Tablet: 768px
-- Desktop: 1024px
-- Wide: 1440px+
-
-## ♿ Accessibility
-
-- WCAG 2.1 AA compliant
-- 21:1 contrast ratio (white on black)
-- Keyboard navigation
-- Screen reader friendly
-- Respects `prefers-reduced-motion`
-
-## 🤝 Contributing
-
-This is an event website. For design changes:
-1. Review `DESIGN_PROMPT.md` for design principles
-2. Keep it minimal (no AI shininess)
-3. Test on real devices
-4. Maintain GDPR compliance
-
-## 📄 License
-
-Private event website - All rights reserved.
-
-## 🆘 Support
-
-**Questions?**
-- Design: See `DESIGN_PROMPT.md`
-- Legal: See `app/privacy/page.tsx`
-
----
-
-**Built with:** ❤️ + Swiss Minimalism + Brutalism
-
-**Design Inspiration:** Apple launches, high-end fashion sites, brutalist portfolios
-
-**NOT Inspired By:** Generic AI landing pages, glassmorphism, gradient madness
-
----
-
-sitWHM 2026 - A SAP Community Event
+See `DESIGN_PROMPT.md`. Keep it minimal. No gradients-for-the-sake-of-it, no
+glassmorphism.

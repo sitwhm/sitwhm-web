@@ -1,14 +1,34 @@
 import { siteConfig } from "@/app/siteConfig"
+import { featureFlags } from "@/app/featureFlags"
+import { latestPastEdition, upcomingEdition } from "@/lib/editions"
 import { RiHeartFill } from "@remixicon/react"
 import Link from "next/link"
 
-const footerLinks = [
-  { href: "#about", label: "About" },
-  { href: "#agenda", label: "Agenda" },
-  { href: "#registration", label: "Registration" },
-  { href: "#location", label: "Location" },
-  { href: "#speakers", label: "Speakers" },
-]
+const isRecap = featureFlags.pageMode === 'recap'
+
+// Same reason as in the Navbar: the live-event anchors don't exist on the
+// recap page, so linking to them would scroll nowhere.
+const footerLinks = isRecap
+  ? [
+      { href: "#recordings", label: "Talks & Slides" },
+      { href: "#photos", label: "Photos" },
+      { href: "#next", label: `sitWHM ${upcomingEdition?.year ?? ""}`.trim() },
+      { href: "#coverage", label: "#sitWHM" },
+      { href: latestPastEdition.recapPath ?? "/", label: `${latestPastEdition.year} archive` },
+    ]
+  : [
+      { href: "#about", label: "About" },
+      { href: "#agenda", label: "Agenda" },
+      { href: "#registration", label: "Registration" },
+      { href: "#location", label: "Location" },
+      { href: "#speakers", label: "Speakers" },
+    ]
+
+// The site description is written in the future tense ("join us on ..."),
+// which reads wrong once the event has happened.
+const blurb = isRecap
+  ? `Free community tech conference for SAP developers, architects and consultants. ${latestPastEdition.year} took place on ${latestPastEdition.dateLabel} at ${latestPastEdition.venue}, ${latestPastEdition.city}.`
+  : siteConfig.description
 
 export function Footer() {
   return (
@@ -22,9 +42,7 @@ export function Footer() {
                 SITWHM 2026
               </span>
             </div>
-            <p className="mt-4 text-sm text-gray-400">
-              {siteConfig.description}
-            </p>
+            <p className="mt-4 text-sm text-gray-400">{blurb}</p>
           </div>
 
           <div>
