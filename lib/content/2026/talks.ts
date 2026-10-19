@@ -10,10 +10,11 @@ import { Talk } from "@/lib/types"
  * from YouTube, not by assuming the order they were sent in. They were not in
  * agenda order.
  *
- * STAGED RELEASE: only DJ Adams and Christian Lechner are live right now.
- * The other six keep their youtubeId but sit on `videoStatus: "pending"`, so
- * the page says "Publishing soon" instead of embedding them. Releasing one is
- * a single word: change its videoStatus to "published".
+ * STAGED RELEASE: videos go live as they are published on YouTube. The ones
+ * still held back keep their youtubeId but sit on `videoStatus: "pending"`,
+ * so the page says "Publishing soon" instead of embedding them. Releasing one
+ * is a single word: change its videoStatus to "published". The hero card
+ * counts what is live, so the "x of 8 sessions online" line follows along.
  *
  * SLIDES: two ways to link a deck, pick one per talk.
  *
@@ -78,7 +79,8 @@ export const talks: Talk[] = [
   {
     id: "talk8", // Matthias Steiner: The Long Arc of Enterprise Engineering
     youtubeId: "o9gyACc3-6E",
-    videoStatus: "pending",
-    slidesStatus: "pending",
+    videoStatus: "published",
+    slidesFile: "matthias-steiner-the-long-arc-of-enterprise-engineering.pdf",
+    slidesStatus: "published",
   },
 ]
