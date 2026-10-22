@@ -67,8 +67,9 @@ export const talks: Talk[] = [
   {
     id: "talk6", // Morten Wittrock: GitHub and Cloud Integration
     youtubeId: "li8zP-GKAYo",
-    videoStatus: "pending",
-    slidesStatus: "pending",
+    videoStatus: "published",
+    slidesFile: "morten-wittrock-github-and-cloud-integration.pdf",
+    slidesStatus: "published",
   },
   {
     id: "talk7", // Marian Zeis: AI-Assisted SAP Development with MCP
