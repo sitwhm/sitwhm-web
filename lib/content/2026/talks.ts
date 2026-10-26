@@ -49,8 +49,9 @@ export const talks: Talk[] = [
   {
     id: "talk3", // Daniel Hutzel & Sebastian van Syckel: CAP Best Practices and AI
     youtubeId: "lOu8F0_qX1w",
-    videoStatus: "pending",
-    slidesStatus: "pending",
+    videoStatus: "published",
+    slidesFile: "hutzel-van-syckel-cap-best-practices-and-ai.pdf",
+    slidesStatus: "published",
   },
   {
     id: "talk4", // Holger Bruchelt: SAP AI and Microsoft AI
